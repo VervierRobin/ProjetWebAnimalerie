@@ -1,33 +1,35 @@
 <!doctype html>
 <?php
+//INDEX PUBLIQUE
 include ('./lib/php/Pliste_include.php');
-$db = Connexion::getInstance($dsn, $user, $pass);
+$db = Connexion::getInstance($dsn,$user,$pass);
 session_start();
-$scripts = array();
-$i = 0;
-foreach (glob('../Admin/lib/js/jquery/*.js') as $js) {
-    $scripts[$i] = $js;
-    $i++;
+$scripts= array();
+$i=0;
+foreach(glob('../Admin/lib/js/jquery/*.js') as $js)  {
+   $scripts[$i]=$js;
+   $i++; 
 }
 ?>
 <html>
     <head>
         <title>Au p'tit bonheur - Bienvenue</title>
         <meta charset="UTF-8"/>
-        <link rel="stylesheet" type="text/css" href="../admin/lib/css/style_pc.css" />
-        <link rel="stylesheet" type="text/css" href="../admin/lib/css/mediaqueries.css" />
+       <link rel="stylesheet" type="text/css" href="../Admin/lib/css/style_pc.css" />
+        <link rel="stylesheet" type="text/css" href="../Admin/lib/css/mediaqueries.css" />
         <?php
-        foreach ($scripts as $js) {
+        foreach($scripts as $js) {
             ?>
-            <script type="text/javascript" src="<?php print $js; ?>">
-            </script>
+        <script type="text/javascript" src="<?php print $js;?>">
+        </script>
             <?php
         }
         ?>
-
+       
         <script src="../Admin/lib/js/fonctionsJquery.js"></script>
     </head>
-    <body>       
+<body>
+          
         <section id="page">
             <header>
                 <img src="../Admin/images/banniere_Projet.jpg" alt="banniere animalerie" />
@@ -63,6 +65,4 @@ foreach (glob('../Admin/lib/js/jquery/*.js') as $js) {
         <footer>
             Editeurs responsables : robin.vervier@condorcet.be - julien.lefevree@condorcet.be
         </footer>
-    </body>
-
-</html>
+    </body>   
