@@ -1,0 +1,71 @@
+/*************** GENERALITES  ...........*/
+.txtGras {
+	font-weight:bold;
+}
+.txtBlue {
+    color:blue;
+}
+.up {
+    vertical-align:top;
+}
+.centrer {
+    text-align:center;
+}
+
+/****************** accueil ***************/
+#chenil_img {
+    display:inline-block;
+}
+#texte_accueil {
+    display:inline-block;
+    max-width:40%;
+}
+
+/****************** Layout ***************/
+#page {
+	margin:0 auto;
+	width:90%; 
+	max-width:850px;/*m taille que header */
+	min-width:760px;
+}
+
+header {
+	margin:0 auto;
+	max-width:850px;
+}
+
+#colGauche {
+	float:left;
+	width:18%;
+	margin-top:2%;
+}
+
+#menu li {
+	list-style-image:none;
+	text-align:left;
+}
+
+#contenu {
+	float:left;
+	margin-top:5%;
+	margin-left:2%;
+	width:80%;
+}
+
+#main {
+	padding-left:1%;padding-right:1%;
+	width:100%;/* 80% des 75% */
+	display:inline-block;	
+}
+
+footer {
+	clear:both;
+	color:#888;
+	width:80%;
+	margin:0 auto;
+	text-align:center;
+}
+
+header img {
+	width:100%;
+}
