@@ -1,4 +1,4 @@
-/* Jquery pour admin */
+/* Jquery pour Admin */
 $(document).ready(function(){
     
     $('section#login_form').css('display','none');
