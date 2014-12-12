@@ -7,12 +7,12 @@ $nbr = count($liste_Class);
 
 
 if (isset($_GET['envoi_choix'])) {
-    try{
-    $mg2 = new AnimalManager($db);
-    $animaux = $mg2->getListeSelection($_GET['choix']);
-    $nbr_animal = count($animaux);
-    }
-    catch(ErrorException $ex){}
+        try {
+            $mg2 = new AnimalManager($db);
+            $animaux = $mg2->getListeSelection($_GET['choix']);
+            $nbr_animal = count($animaux);
+        }
+        catch(ErrorException $ex){}
     }
 ?>
 
