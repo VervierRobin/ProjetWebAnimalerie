@@ -1,6 +1,6 @@
 <h2>Découvrez nos produits</h2>
 <?php
-        if (isset($_GET['envoi_choix'])) {
+        if ($_GET['choix'] == 1) {
             try {
                 $mg = new ProduitSoinManager($db);
                 $listeProduitsSoins = $mg->getListeProduitSoin();
@@ -31,16 +31,28 @@
     </table>
 </form>
 
+
 <?php
     if (isset($nbreProduitsSoins)) {
+?>
+    <table>
+<?php
         for ($i = 0; $i < $nbreProduitsSoins; $i++) {
 ?>
-            <p>
-                Produit soin n°<?php print $i+1?>
-            </p>
-            <br/>
+            <tr>
+                <td>
+                   <img src="../Admin/images/produitsDeSoins/<?php print $listeProduitsSoins[$i]->photo;?>" alt="<?php print $listeProduitsSoins[$i]->descphoto; ?>" /> 
+                </td>
+                
+                <td> 
+                    <p>Produit soin n°<?php print $i+1?></p><br/>
+                    <?php print $listeProduitsSoins[$i]->produit; ?>
+                </td>
+            </tr>
 <?php
-            print $listeProduitsSoins[$i]->produit;
         }
+?>
+    </table>
+<?php   
     }
 ?>
