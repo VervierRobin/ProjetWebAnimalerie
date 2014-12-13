@@ -6,11 +6,11 @@ $(document).ready(function () {
 
     $("#login_form").fadeIn(3000);
     $("#login").focus();
-    $("#annuler").click(function () {
-        $("#login_form").fadeOut("2000");
-        window.location.href = "../publique/index.php";
-    });
-
+    $('input#annuler').on('click', function (event) {
+             
+        window.location.href = "../Publique/index.php";
+        return false;
+});
     $('input#submit_login').on('click', function (event) {
         login = $("#login").val();
         password = $("#password").val();
@@ -32,6 +32,7 @@ $(document).ready(function () {
                     else {
                        // alert(data_du_php.retour);
                         $('#message').html("--> Données incorrectes");
+                        
                     }
                 },
                 fail: function () {
