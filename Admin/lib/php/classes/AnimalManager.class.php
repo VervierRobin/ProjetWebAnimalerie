@@ -38,10 +38,10 @@ class AnimalManager extends Animal {
             $query = "select * from animal";
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
-        } catch (PDOException $e) {
+        } 
+        catch (PDOException $e) {
             print "Echec de la requ&ecirc;te " . $e->getMessage();
         }
-
         while ($data = $resultset->fetch()) {
             $_AnimalArray[] = new Animal($data);
         }

@@ -1,19 +1,19 @@
 <h2>D&eacute;couvrez nos animaux</h2>
 <?php
-$mg = new ClassificationManager($db);
-$liste_Class = $mg->getListeClass();
-//nombre d'élt du tableau de resultset
-$nbr = count($liste_Class);
+    $mg = new ClassificationManager($db);
+    $liste_Class = $mg->getListeClass();
+    //nombre d'élt du tableau de resultset
+    $nbr = count($liste_Class);
 
 
-if (isset($_GET['envoi_choix'])) {
-        try {
-            $mg2 = new AnimalManager($db);
-            $animaux = $mg2->getListeSelection($_GET['choix']);
-            $nbr_animal = count($animaux);
+    if (isset($_GET['envoi_choix'])) {
+            try {
+                $mg2 = new AnimalManager($db);
+                $animaux = $mg2->getListeSelection($_GET['choix']);
+                $nbr_animal = count($animaux);
+            }
+            catch(ErrorException $ex){}
         }
-        catch(ErrorException $ex){}
-    }
 ?>
 
 <form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">

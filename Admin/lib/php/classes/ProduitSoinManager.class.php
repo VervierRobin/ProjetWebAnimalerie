@@ -1,27 +1,27 @@
 <?php
 
-class ClientManager extends Client {
+class ProduitSoinManager extends Client {
     private $_db;
-    private $_clientArray = array();
+    private $_produitSoinArray = array();
     
     public function __construct($db) {
         $this->_db = $db;
     }
     
-    public function getListeSelection($choix){
+    public function getListeProduitSoin(){
         try {
-            $query="select * from client where idclient =:idclient";
+            $query="select * from produitsoin";
             $resultset= $this->_db->prepare($query);
-            $resultset->bindValue(1,$choix,PDO::PARAM_INT);
             $resultset->execute();            
-        }catch(PDOException $e) {
+        }
+        catch(PDOException $e) {
             print "Echec de la requ&ecirc;te ".$e->getMessage();
         }
     
         while($data = $resultset->fetch()){
-            $_clientArray[] = new Client($data);
+            $_produitSoinArray[] = new ProduitSoin($data);
         }
 
-        return $_clientArray;
+        return $_produitSoinArray;
  } 
 }
