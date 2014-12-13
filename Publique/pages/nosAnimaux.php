@@ -2,9 +2,7 @@
 <?php
     $mg = new ClassificationManager($db);
     $liste_Class = $mg->getListeClass();
-    //nombre d'élt du tableau de resultset
-    $nbr = count($liste_Class);
-
+    $nbr = count($liste_Class); //Compte le nombre d'élements
 
     if (isset($_GET['envoi_choix'])) {
             try {
@@ -12,7 +10,9 @@
                 $animaux = $mg2->getListeSelection($_GET['choix']);
                 $nbr_animal = count($animaux);
             }
-            catch(ErrorException $ex){}
+            catch(ErrorException $ex)   {
+                print $ex;
+            }
         }
 ?>
 
@@ -51,7 +51,7 @@ if (isset($nbr_animal)) {
             ?>
             <tr>
                 <td>
-                    <img src="../Admin/images/<?php print $animaux[$i]->photo; ?>" alt="<?php print $animaux[$i]->descphoto; ?>" />
+                    <img src="../Admin/images/animaux/<?php print $animaux[$i]->photo;?>" alt="<?php print $animaux[$i]->descphoto; ?>" />
                 </td>
                 <td class="up centrer">
                     <span class="txtBlue txtGras">
