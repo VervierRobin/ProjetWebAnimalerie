@@ -1,11 +1,19 @@
-#page {
+/* Mobiles */
+
+#page{	
 	min-width:200px;
 }
+
 #colGauche {
-	float:none;
+	float:none; 
 	width:100%;
-}
+	margin-top:2%; 
+}	
 
 #contenu {
 	width:100%;
+}
+
+#chenil_img {
+    width:100%;
 }

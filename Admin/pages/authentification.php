@@ -1,31 +1,25 @@
 <?php
 if(isset($_POST['submit_login'])) {
-    print " ok : "; 
     $mg = new Login($db);
     $retour=$mg->isAdmin($_POST['login'],$_POST['password']);
-    print $retour;
     if($retour==1) {
         $_SESSION['admin']=1;
         $message="Authentifié!";
-        header('Location: http://localhost/projects/Projet3e/Admin/index.php');
+        //header('Location: http://localhost/projects/Projet3e/Admin/index.php');
+        header('Location: ../../../Admin/index.php');
     } 
     else {
         $message="Données incorrectes";
     }
 }
 ?>
-<section id="message">
-    <?php 
-    if(isset($message)) 
-        print $message;?>
-</section>
-
+<section id="message"><?php if(isset($message)) print $message;?></section>
 <fieldset id="fieldset_login">
     <legend>Authentifiez-vous</legend>
     <form action="<?php print $_SERVER['PHP_SELF']; ?>" method='post' id="form_auth">
         <table>
             <tr>
-                <td>Login </td>
+                <td>Login<?php //print " session : ".$_SESSION['admin'];?></td>
                 <td><input type="text" id="login" name="login" /></td>
             </tr>
             <tr>
@@ -42,7 +36,4 @@ if(isset($_POST['submit_login'])) {
     </form>
 </fieldset>
 <div id="shadow" class="popup"></div>
-
-
-
 

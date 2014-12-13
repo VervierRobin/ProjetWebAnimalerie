@@ -16,6 +16,7 @@ foreach (glob('./lib/js/jquery/*.js') as $js) {
         <title>Administration</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" type="text/css" href="./lib/css/style_pc.css" />
+        <link rel="stylesheet" type="text/css" href="./lib/css/style_jquery.css"/>
         <link rel="stylesheet" type="text/css" href="./lib/css/mediaqueries.css" />
         <?php
         foreach ($scripts as $js) {
@@ -44,7 +45,7 @@ foreach (glob('./lib/js/jquery/*.js') as $js) {
                 </section>
             </header>
             <?php
-            $_SESSION['admin']="accueil";
+            //$_SESSION['admin']="accueil";
             if (!isset($_SESSION['admin'])) {
                 ?>
                 <section id="login_form">

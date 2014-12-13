@@ -1,19 +1,24 @@
-/* style pour tablette */
-#page {
+/* tablette */
+
+#page{	
 	min-width:320px;
 }
 
 #colGauche {
-	float:none;
+	float:none; 
 	width:100%;
-	margin-top:2%;
-}
+	margin-top:2%; 
+}	
 
 ul li {
 	float:left;
-	width:50%;
+	width:50%; /* du parent */
 }
 
- #contenu {
+#contenu {
 	width:100%;
- }
+}
+
+#chenil_img {
+    max-width:50%;
+}

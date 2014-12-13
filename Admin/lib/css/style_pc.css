@@ -1,19 +1,107 @@
-/*************** GENERALITES  ...........*/
-.txtGras {
-	font-weight:bold;
+/*****************Généralités ........*/
+.up {
+    vertical-align: top;
 }
+
 .txtBlue {
     color:blue;
 }
-.up {
-    vertical-align:top;
+
+.txtGras {
+    font-weight: bold;
 }
+
 .centrer {
+    text-align: center;
+}
+
+.txtRed {
+    color:#F00;
+}
+
+.txtRoseLogo {
+    color:#D91B57
+}
+
+.ecart {
+    padding-left:2%;
+}
+
+.txtDarkBlue {
+    color:#0C0E72;
+}
+
+/***************************************Accueil admin *******************************/
+
+#login_form  {    
+    position:absolute;
+    top:200px;
+    left:600px;
+    width:400px;
+    position:fixed;
+    background-color:#2E8B57;
+    color:red;
+    padding:10px;
+    border:1px solid #AAA;
+    z-index:200;
+    -moz-border-radius: 10px;
+    -moz-box-shadow: 0 0 10px #aaa;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px #aaa;
+}
+#overlay:target {
+    display:block;
+}
+
+fieldset#fieldset_login {
+    border:2px solid red;				
+    border-radius:8px;	
+    padding:50px;
+}
+
+
+/***************** Réservation .....................*/
+.descriptif {
+    width:60%;
+}
+
+.bordure {
+    border-left-color:#00F;
+    border-left-style:solid;
+    border-left-width:1px;
+    border-bottom-color:#00F;
+    border-bottom-style:solid;
+    border-bottom-width:1px;	
+}
+
+.aligner_centre {
     text-align:center;
 }
 
-/****************** accueil ***************/
-#chenil_img {
+.full_bordure {
+    border-color:#00F;
+    border-style:solid;
+    border-width:1px;
+    padding:15px;
+    text-align:center;
+}
+
+.espacer {
+    padding-left:25px;
+    padding-top:5px;
+    font-size:120%;
+}
+
+#pensionnaire {
+    border-color:#DDFFAA;
+    display:inline;
+    padding:15px;
+}
+
+
+
+/*..............Accueil ................*/
+#chenil_img{
     display:inline-block;
 }
 #texte_accueil {
@@ -21,51 +109,113 @@
     max-width:40%;
 }
 
-/****************** Layout ***************/
-#page {
-	margin:0 auto;
-	width:90%; 
-	max-width:850px;/*m taille que header */
-	min-width:760px;
+#avertisst {
+    color:blue;
+    font-size:80%;
+    font-style:italic;
 }
 
-header {
-	margin:0 auto;
-	max-width:850px;
+#cacher {
+    margin-bottom:2%;
 }
 
-#colGauche {
-	float:left;
-	width:18%;
-	margin-top:2%;
-}
 
-#menu li {
-	list-style-image:none;
-	text-align:left;
-}
+/*..............GABARIT ................*/
 
-#contenu {
-	float:left;
-	margin-top:5%;
-	margin-left:2%;
-	width:80%;
-}
 
-#main {
-	padding-left:1%;padding-right:1%;
-	width:100%;/* 80% des 75% */
-	display:inline-block;	
-}
-
-footer {
-	clear:both;
-	color:#888;
-	width:80%;
-	margin:0 auto;
-	text-align:center;
+#deconnexion {
+    float:right;
 }
 
 header img {
-	width:100%;
+    width:100%;
 }
+
+#page {
+    margin:0 auto; 
+    width:90%;
+    max-width:850px; /* taille du header */
+    min-width:760px;
+}
+
+header {
+    margin:0 auto; text-align:center;
+    max-width:850px;
+
+}
+
+#colGauche {
+    float:left; 
+    width:18%;
+    margin-top:2%; 
+
+}		
+
+ul {
+    padding-left:0%;
+}
+
+#menu ul {
+    padding-left:20%;
+}
+
+#menu li {
+    list-style-type:none;
+    text-align:left;
+}
+
+.bottomLine {
+    border-bottom-style:solid;
+    border-bottom-color:#CCC;
+    border-bottom-width:0.07em;
+}
+nav {
+
+}
+
+#menu a {
+    text-decoration:none; 
+}
+#menu a:hover{
+    color:white;
+    background-color:blue;	
+}
+.txtGras {
+    font-weight:bold;
+}
+footer {
+    clear:both; 
+    color:#333;
+    width:80%;
+    margin:0 auto; 
+    text-align:center;
+    padding-right:15px;
+    padding-top:1%;
+}	
+#label {
+    text-align:center;
+    padding-right:3%;
+}
+#contenu { 
+    float :left; 
+    margin-top:2%; 
+    margin-left:2%;
+    width:80%;
+
+}	
+#main {
+    padding-left:1%;
+    padding-right:1%;
+    width:100%;
+    display:inline-block;
+    font-size:110%;
+}
+#pub { 
+    float:right;
+    display:inline-block;
+    margin-left:1%;
+    margin-top:-1%;
+    max-width:15%;
+}
+
+
