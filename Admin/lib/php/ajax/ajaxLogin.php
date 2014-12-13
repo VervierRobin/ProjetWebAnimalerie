@@ -1,25 +1,23 @@
 <?php
 session_start();
 header('Content-Type: application/json');
+//indique que le retour doit $etre traité en json
 require './liste_include_ajax.php';
 require '../classes/connexion.class.php';
 require '../classes/login.class.php';
 
 $db = Connexion::getInstance($dsn,$user,$pass);
 
-try{
-    print "ok";
+try{    
     $mg = new Login($db);
-    //login et password sont dans data_form
-    $retour = $mg->isAdmin($_POST['login'],$_POST['password']);
+    $retour=$mg->isAdmin($_POST['login'],$_POST['password']);
     if($retour==1) {
         $_SESSION['admin']=1;
         $_SESSION['page']="accueil";
+               //print "session : ".$_SESSION['admin'];
     }
-    //ira initialiser la variable data_du_php
-    print json_encode(array('retour'=> $retour));
+    print json_encode(array('retour' => $retour)); 
 }
- catch (PDOException $e){
-     
- }
+catch(PDOException $e){}
+
 ?>
