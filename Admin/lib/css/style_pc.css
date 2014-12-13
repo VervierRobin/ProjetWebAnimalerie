@@ -39,11 +39,12 @@
     left:600px;
     width:400px;
     position:fixed;
-    background-color:#2E8B57;
-    color:red;
+    background-color:#4CF7B3;
+    color:#A81515;
     padding:10px;
     border:1px solid #AAA;
     z-index:200;
+    font-size:20px;
     -moz-border-radius: 10px;
     -moz-box-shadow: 0 0 10px #aaa;
     -webkit-border-radius: 10px;

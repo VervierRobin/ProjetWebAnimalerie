@@ -19,17 +19,24 @@ if(isset($_POST['submit_login'])) {
     <form action="<?php print $_SERVER['PHP_SELF']; ?>" method='post' id="form_auth">
         <table>
             <tr>
-                <td>Login<?php //print " session : ".$_SESSION['admin'];?></td>
+                <td>Login : <?php //print " session : ".$_SESSION['admin'];?></td>
                 <td><input type="text" id="login" name="login" /></td>
             </tr>
             <tr>
-                <td>Password:</td>
+                <td>Password : </td>
                 <td><input type="password" id="password" name="password" /></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" name="submit_login" id="submit_login" value="Login" />
-                    <input type="reset" id="annuler" value="Annuler" />
+                    &nbsp;
+                </td>	
+            </tr>
+            <tr>
+                <td colspan="2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="image" src="./images/valider.png" name="submit_login" id="submit_login"  />
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="image" src="./images/annuler.png" id="annuler"  />
                 </td>	
             </tr>
         </table>	

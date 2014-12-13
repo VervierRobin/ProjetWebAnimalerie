@@ -21,7 +21,6 @@ $(document).ready(function () {
             $.ajax({
                 type: 'POST',
                 data: data_form, // si sérialisé
-                //data: "login=" + login + "&password=" + password, // si pas sérialisé
                 dataType: "json",
                 url: './lib/php/ajax/AjaxLogin.php',
                 success: function (data_du_php) {
@@ -31,7 +30,7 @@ $(document).ready(function () {
                         window.location.href = "./index.php";
                     }
                     else {
-                        alert(data_du_php.retour);
+                       // alert(data_du_php.retour);
                         $('#message').html("--> Données incorrectes");
                     }
                 },
