@@ -1,8 +1,8 @@
 <?php
 
-class ProduitSoinManager extends ProduitSoin {
+class NourritureManager extends Nourriture {
     private $_db;
-    private $_produitSoinArray = array();
+    private $_nourritureArray = array();
     
     public function __construct($db) {
         $this->_db = $db;
@@ -10,7 +10,7 @@ class ProduitSoinManager extends ProduitSoin {
     
     public function getListeProduitSoin(){
         try {
-            $query="select * from produitsoin";
+            $query="select * from nourriture";
             $resultset= $this->_db->prepare($query);
             $resultset->execute();            
         }
@@ -19,9 +19,9 @@ class ProduitSoinManager extends ProduitSoin {
         }
     
         while($data = $resultset->fetch()){
-            $_produitSoinArray[] = new ProduitSoin($data);
+            $_nourritureArray[] = new Nourriture($data);
         }
 
-        return $_produitSoinArray;
+        return $_nourritureArray;
  } 
 }

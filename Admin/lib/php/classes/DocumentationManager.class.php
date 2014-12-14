@@ -1,16 +1,16 @@
 <?php
 
-class ProduitSoinManager extends ProduitSoin {
+class DocumentationManager extends Documentation {
     private $_db;
-    private $_produitSoinArray = array();
+    private $_documentationArray = array();
     
     public function __construct($db) {
         $this->_db = $db;
     }
     
-    public function getListeProduitSoin(){
+    public function getListeDocumentation() {
         try {
-            $query="select * from produitsoin";
+            $query="select * from doc";
             $resultset= $this->_db->prepare($query);
             $resultset->execute();            
         }
@@ -19,9 +19,8 @@ class ProduitSoinManager extends ProduitSoin {
         }
     
         while($data = $resultset->fetch()){
-            $_produitSoinArray[] = new ProduitSoin($data);
+            $_documentationArray[] = new Documentation($data);
         }
-
-        return $_produitSoinArray;
- } 
+        return $_documentationArray;
+    } 
 }
