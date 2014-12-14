@@ -36,7 +36,7 @@ if(isset($_POST['submit_login'])) {
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="image" src="./images/valider.png" name="submit_login" id="submit_login"  />
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="image" src="./images/annuler.png" id="annuler"  />
+                    <input type="image" src="./images/annuler.png" name="annuler" id="annuler" />
                 </td>	
             </tr>
         </table>	
