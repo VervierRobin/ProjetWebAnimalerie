@@ -1,7 +1,8 @@
 <h2>Découvrez nos produits</h2>
 <?php
         try
-        {   switch ($_GET['choix']) {
+        {   if (isset($_GET['envoi_choix'])) {
+            switch ($_GET['choix']) {
             
                 case 1 :    $mg = new ProduitSoinManager($db);
                             $listeProduitsSoins = $mg->getListeProduitSoin();
@@ -22,7 +23,8 @@
                             $listeDocumentation = $mg4->getListeDocumentation();
                             $nbreDocumentation = count($listeDocumentation);
                             break;
-            }    
+            }
+        }
         }
         catch (ErrorException $ex) {
             print $ex;
