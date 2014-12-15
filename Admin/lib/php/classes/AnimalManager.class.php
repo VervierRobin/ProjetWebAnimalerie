@@ -13,7 +13,6 @@ class AnimalManager extends Animal {
         $cpt = 0;
         if ($choix != -1) {
             try {
-
                 $query = "select * from vue_animal where idclassification_classification =:classification ";
                 $resultset = $this->_db->prepare($query);
                 $resultset->bindValue(1, $choix, PDO::PARAM_INT);

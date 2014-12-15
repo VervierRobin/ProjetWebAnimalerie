@@ -3,6 +3,7 @@
 class ProduitSoinManager extends ProduitSoin {
     private $_db;
     private $_produitSoinArray = array();
+    private $_animal;
     
     public function __construct($db) {
         $this->_db = $db;
@@ -23,5 +24,20 @@ class ProduitSoinManager extends ProduitSoin {
         }
 
         return $_produitSoinArray;
- } 
+    }
+    
+    public function getProduitSoinClassification($idClassification) {
+        try
+        {   $query="select * from classification where idclassification = :classif";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(":classif",$idClassification);
+            $resultset->execute();
+        }
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        $data = $resultset->fetch();
+        $classification = new Classification($data);
+        return $classification;
+    }
 }

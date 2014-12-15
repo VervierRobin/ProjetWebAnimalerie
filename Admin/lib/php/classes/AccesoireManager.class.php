@@ -8,7 +8,7 @@ class AccesoireManager extends Accesoire {
         $this->_db = $db;
     }
     
-    public function getListeProduitSoin(){
+    public function getListeAccesoire(){
         try {
             $query="select * from accesoires";
             $resultset= $this->_db->prepare($query);

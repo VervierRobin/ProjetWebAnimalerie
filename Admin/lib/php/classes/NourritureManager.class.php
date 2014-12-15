@@ -8,7 +8,7 @@ class NourritureManager extends Nourriture {
         $this->_db = $db;
     }
     
-    public function getListeProduitSoin(){
+    public function getListeNourriture(){
         try {
             $query="select * from nourriture";
             $resultset= $this->_db->prepare($query);
