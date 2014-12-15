@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['submit_login'])) {
+if(isset($_POST['submit_login_x'])) {
     $mg = new Login($db);
     $retour=$mg->isAdmin($_POST['login'],$_POST['password']);
     if($retour==1) {

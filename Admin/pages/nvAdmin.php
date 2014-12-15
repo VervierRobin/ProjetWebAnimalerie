@@ -1,7 +1,7 @@
 <script src="./lib/js/fonctionsJqueryNvAdmin.js"></script>
 <?php
 
-if(isset($_POST['submit_enr'])) {
+if(isset($_POST['submit_enr_x'])) {
     $mg = new Login($db);
     $retour=$mg->addAdmin($_POST['login'],$_POST['password'],$_POST['password2']);
     if($retour==1) {

@@ -62,11 +62,20 @@ if (isset($nbr_animal)) {
                     }
                     ?></span><?php
                     if ($animaux[$i]->couleur != '') {
-                        print "Couleur : " . $animaux[$i]->couleur. "<br />";
+                         print "Couleur : " ; ?> 
+                    <span style="background:<?php print $animaux[$i]->couleur?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                   
+                        <?php print "<br />";
                     }
-                    if ($animaux[$i]->taille != -1) {
-                        print "Taille : " . $animaux[$i]->taille. "cm - Poids : ".$animaux[$i]->poids."kg - sexe : ".$animaux[$i]->Sexe." <br />";
+                    $sex = ' - ';
+                    if($animaux[$i]->sexe === 'm'){
+                       $sex = '♂';
                     }
+                    elseif ($animaux[$i]->sexe === 'f') {
+                        $sex = '♀';
+                    }    
+                    print "Taille : " . $animaux[$i]->taille. "cm - Poids : ".$animaux[$i]->poids."kg - sexe : ".$sex." <br />";
+                    
                     if ($animaux[$i]->prixanimal != -1) {
                         $prixtot = $animaux[$i]->prixanimal+(($animaux[$i]->prixanimal*$animaux[$i]->tva_animal)/100);
                         print "Prix : " . $prixtot . " € <br />";
