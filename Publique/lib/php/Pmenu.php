@@ -1,3 +1,4 @@
+<!--menu publique -->
 <ul id="menu">
  <li class="bottomLine"><a href="index.php?page=accueil">Accueil</a></li>
  <li class="bottomLine"> <a href="index.php?page=nosAnimaux">Nos animaux</a></li>

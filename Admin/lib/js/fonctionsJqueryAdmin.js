@@ -41,7 +41,7 @@ $(document).ready(function () {
             });
         }
         else {
-            $('#message').html("Remplissez les champs");
+            $('#message').html("--> Remplissez les champs");
         }
         return false;
     });
