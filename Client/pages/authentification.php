@@ -1,17 +1,22 @@
 <?php
 if(isset($_POST['submit_login_x'])) {
-    $mg = new Login($db);
-    $retour=$mg->isAdmin($_POST['login'],$_POST['password']);
-    if($retour==1) {
-        $_SESSION['admin']=1;
+    $mg = new ClientManager($db);
+    $retour=$mg->isClient($_POST['login'],$_POST['password']);
+    
+    if($retour==1) {    
+        $_SESSION['client']=1;
         $message="Authentifié!";
-        //header('Location: http://localhost/projects/Projet3e/Admin/index.php');
-        header('Location: ../../../Admin/index.php');
+        header('Location: http://localhost/projects/Projet3e/Client/index.php');
     } 
     else {
         $message="Données incorrectes";
     }
+    
 }
+if ( isset($_POST('annuler_x')) ) {
+        header('Location: http://localhost/projects/Projet3e/Publique/index.php');
+}
+
 ?>
 <section id="message"><?php if(isset($message)) print $message;?></section>
 <fieldset id="fieldset_login">
@@ -22,10 +27,12 @@ if(isset($_POST['submit_login_x'])) {
                 <td>Login : <?php //print " session : ".$_SESSION['admin'];?></td>
                 <td><input type="text" id="login" name="login" /></td>
             </tr>
+            
             <tr>
                 <td>Password : </td>
                 <td><input type="password" id="password" name="password" /></td>
             </tr>
+            
             <tr>
                 <td colspan="2">
                     &nbsp;
@@ -34,13 +41,12 @@ if(isset($_POST['submit_login_x'])) {
             <tr>
                 <td colspan="2">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="image" src="./images/valider.png" name="submit_login" id="submit_login"  />
+                    <input type="image" src="../Admin/images/valider.png" name="submit_login" id="submit_login"  />
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="image" src="./images/annuler.png" name="annuler" id="annuler" />
+                    <input type="image" src="../Admin/images/annuler.png" name="annuler" id="annuler" />
                 </td>	
             </tr>
         </table>	
     </form>
 </fieldset>
 <div id="shadow" class="popup"></div>
-
