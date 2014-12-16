@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION addAdmin(text, text)
+  RETURNS integer AS
+'
+	declare f_login alias for $1;
+	declare f_password alias for $2;
+	declare id integer;
+	declare retour integer;
+begin
+	INSERT INTO admin (login, motpass) VALUES (f_login,f_password);
+	return 1;
+end;
+'
+LANGUAGE plpgsql;

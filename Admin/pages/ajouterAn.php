@@ -11,13 +11,13 @@ $nbrPays = count($liste_Pays); //Compte le nombre d'élements
 if (isset($_POST['submit_enrAn_x'])) {
     $mgA = new AnimalManager($db);
     $retour = $mgA->addAnimal($_POST['choixEsp'], $_POST['race'], $_POST['num'],$_POST['couleur'], $_POST['taille'], $_POST['poids'],$_POST['choixSex'], $_POST['px'], $_POST['tva'],$_POST['photo'], $_POST['descPhoto'], $_POST['stock'],$_POST['pays']);
-    //if ($retour == 1) {
-    $message = "Nouveau animal enregistré";
+    if ($retour == 1) {
+      $message = "Nouveau animal enregistré";
         //header('Location: http://localhost/projects/Projet3e/Admin/index.php');
         //header('Location: ../../../Admin/index.php');
-    //} else {
-      //  $message = "Données incorrectes";
-   // }*/
+    } else {
+        $message = "Données incorrectes";
+    }
 }
 
 ?>

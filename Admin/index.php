@@ -26,7 +26,7 @@ foreach (glob('./lib/js/jquery/*.js') as $js) {
             <?php
         }
         ?>
-
+            <script src="./lib/js/jquery/jquery-1.11.js.js"></script>
         <script src="./lib/js/fonctionsJqueryAdmin.js"></script>
     </head>
     <body>

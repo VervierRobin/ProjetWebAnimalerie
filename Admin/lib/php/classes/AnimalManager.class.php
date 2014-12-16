@@ -49,6 +49,10 @@ class AnimalManager extends Animal {
 
     public function addAnimal($choixEsp, $race, $num, $couleur, $taille, $poids, $choixSex, $px, $tva, $photo, $descPhoto, $stock, $pays) {
         try {
+            if($choixEsp == -1 && $race =='' && $num == '' && $taille == '' && $poids =='' && $px == '' && $tva =='' && $stock =='' && $pays == -1){
+                $retour = 0;
+            }
+            else {
             $query = "select add_animal(:choixEsp,:race,:num,:couleur, :taille,:poids,:choixSex,:px, :tva,:photo, :descPhoto, :stock, :pays) as retour";
             $sql = $this->_db->prepare($query);
             $sql->bindValue(':choixEsp', $_POST['choixEsp']);
@@ -65,7 +69,8 @@ class AnimalManager extends Animal {
             $sql->bindValue(':stock', $_POST['stock']);
             $sql->bindValue(':pays', $_POST['pays']);
             $sql->execute();
-            $retour = $sql->fetchColumn(0);                     
+            $retour = $sql->fetchColumn(0);
+            }
         } 
         catch(PDOException $e) {    
             print "Echec de la requ&ecirc;te.". $e;
