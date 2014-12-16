@@ -9,20 +9,37 @@ class ProduitSoinManager extends ProduitSoin {
         $this->_db = $db;
     }
     
-    public function getListeProduitSoin(){
-        try {
-            $query="select * from produitsoin";
+    public function countProduitSoin(){
+        $cpt = 0;
+        try 
+        {   $query="select * from produitsoin;";
             $resultset= $this->_db->prepare($query);
             $resultset->execute();            
         }
         catch(PDOException $e) {
             print "Echec de la requ&ecirc;te ".$e->getMessage();
         }
+        while($data = $resultset->fetch())  {
+            $cpt++;
+        }
+        return $cpt;
+    }
     
+    public function getListeProduitSoin($nPage, $maxPage){
+        try {
+            $nPage = ($nPage-1)*5;
+            $query="select * from produitsoin limit :maxPage offset :nPage;";
+            $resultset= $this->_db->prepare($query);
+            $resultset->bindValue(":maxPage",$maxPage);
+            $resultset->bindValue(":nPage",$nPage);
+            $resultset->execute();            
+        }
+        catch(PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
         while($data = $resultset->fetch()){
             $_produitSoinArray[] = new ProduitSoin($data);
         }
-
         return $_produitSoinArray;
     }
     

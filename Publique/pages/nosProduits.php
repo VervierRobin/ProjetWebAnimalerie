@@ -2,29 +2,30 @@
 <?php
         try
         {   if (isset($_GET['envoi_choix'])) {
-            switch ($_GET['choix']) {
-            
-                case 1 :    $mg = new ProduitSoinManager($db);
-                            $listeProduitsSoins = $mg->getListeProduitSoin();
-                            $nbreProduitsSoins = count($listeProduitsSoins);
-                            break;
-                
-                case 2 :    $mg2 = new NourritureManager($db);
-                            $listeNourriture = $mg2->getListeNourriture();
-                            $nbreNourriture = count($listeNourriture);
-                            break;
-                
-                case 3 :    $mg3 = new AccesoireManager($db);
-                            $listeAccesoire = $mg3->getListeAccesoire();
-                            $nbreAccesoire = count($listeAccesoire);
-                            break;
-                        
-                case 4 :    $mg4 = new DocumentationManager($db);
-                            $listeDocumentation = $mg4->getListeDocumentation();
-                            $nbreDocumentation = count($listeDocumentation);
-                            break;
+                switch ($_GET['choix']) {
+
+                    case 1 :    $mg = new ProduitSoinManager($db);
+                                $pageActuelle = 1; $maxElementsPage = 10;
+                                $listeProduitsSoins = $mg->getListeProduitSoin($pageActuelle,$maxElementsPage);
+                                $nbreProduitsSoins = count($listeProduitsSoins);
+                                break;
+
+                    case 2 :    $mg2 = new NourritureManager($db);
+                                $listeNourriture = $mg2->getListeNourriture();
+                                $nbreNourriture = count($listeNourriture);
+                                break;
+
+                    case 3 :    $mg3 = new AccesoireManager($db);
+                                $listeAccesoire = $mg3->getListeAccesoire();
+                                $nbreAccesoire = count($listeAccesoire);
+                                break;
+
+                    case 4 :    $mg4 = new DocumentationManager($db);
+                                $listeDocumentation = $mg4->getListeDocumentation();
+                                $nbreDocumentation = count($listeDocumentation);
+                                break;
+                }
             }
-        }
         }
         catch (ErrorException $ex) {
             print $ex;
@@ -51,13 +52,25 @@
     </table>
 </form>
 
-
 <?php
     if (isset($nbreProduitsSoins)) {
+        
+        $nbrePage = floor($mg->countProduitSoin()/$maxElementsPage)+1;
+        
+        echo '<p align="center">Page : ';
+        for ( $i = 1; $i <= $nbrePage; $i++ )
+        {    if( $i == $pageActuelle)
+             {  echo ' [ '.$i.' ] '; 	
+             }
+             else 
+             {  echo ' <a>'.$i.'</a> ';
+             }
+        }
+        echo '</p>';
 ?>
     <table>
 <?php
-        for ($i = 0; $i < $nbreProduitsSoins; $i++) {
+        for ( $i = 0; $i < $nbreProduitsSoins; $i++) {
 ?>
             <tr>
                 <td>
@@ -67,7 +80,7 @@
                 <td> 
                     <table>
                         <tr> 
-                            <td colspan=2><h3>Produit soin n°<?php print $i+1?></h3></td> 
+                            <td colspan=2><h3>Produit soin n°<?php print ((($pageActuelle-1)*$maxElementsPage)+$i+1)?></h3></td> 
                         </tr>
                         <tr> 
                             <td>Nom du produit</td>
@@ -75,7 +88,7 @@
                         </tr>
                         <tr>
                             <td>Prix</td>
-                            <td><?php print $listeProduitsSoins[$i]->prixsoin?></td>
+                            <td><?php print $listeProduitsSoins[$i]->prixsoin. " €"?></td>
                         </tr>
                         <tr>
                             <td>Description du produit</td>
@@ -87,7 +100,7 @@
                                 <?php 
                                     $mg = new ProduitSoinManager($db);
                                     $classification = $mg->getProduitSoinClassification($listeProduitsSoins[$i]->idclassification_typeanimal);
-                                    print $classification->espece
+                                    print $classification->espece;
                                 ?>
                             </td>
                         </tr>
@@ -99,7 +112,7 @@
 ?>
     </table>
 <?php   
-    }
+    } //Fin du IF
 ?>
 
 
