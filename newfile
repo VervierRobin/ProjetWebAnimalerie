@@ -1,3 +1,24 @@
+CREATE OR REPLACE FUNCTION verif_conn(text, text)
+  RETURNS integer AS
+'
+	declare f_login alias for $1;
+	declare f_password alias for $2;
+	declare id integer;
+	declare retour integer;
+begin
+	select into id idadmin from admin where login=f_login and motpass=f_password;
+	if not found
+	then
+	  retour=0;
+	else
+	  retour=1;
+	end if;
+	return retour;
+end;
+'
+LANGUAGE plpgsql;
+
+---------------------------------------------------
 CREATE OR REPLACE FUNCTION addAdmin(text, text)
   RETURNS integer AS
 '
