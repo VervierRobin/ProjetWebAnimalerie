@@ -8,10 +8,13 @@ class NourritureManager extends Nourriture {
         $this->_db = $db;
     }
     
-    public function getListeNourriture(){
+    public function getListeNourriture($nPage, $maxPage){
         try {
-            $query="select * from nourriture";
+            $nPage = ($nPage-1) * $maxPage;
+            $query="select * from nourriture limit :maxPage offset :nPage;";
             $resultset= $this->_db->prepare($query);
+            $resultset->bindValue(":maxPage",$maxPage);
+            $resultset->bindValue(":nPage",$nPage);
             $resultset->execute();            
         }
         catch(PDOException $e) {
@@ -23,5 +26,21 @@ class NourritureManager extends Nourriture {
         }
 
         return $_nourritureArray;
- } 
+ }
+ 
+ public function countNourriture() {
+        $cpt = 0;
+        try 
+        {   $query="select * from nourriture;";
+            $resultset= $this->_db->prepare($query);
+            $resultset->execute();            
+        }
+        catch(PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        while($data = $resultset->fetch())  {
+            $cpt++;
+        }
+        return $cpt;
+    }
 }

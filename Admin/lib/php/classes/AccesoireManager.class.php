@@ -8,11 +8,14 @@ class AccesoireManager extends Accesoire {
         $this->_db = $db;
     }
     
-    public function getListeAccesoire(){
+    public function getListeAccesoire($nPage, $maxPage){
         try {
-            $query="select * from accesoires";
+            $nPage = ($nPage-1)*$maxPage;
+            $query="select * from accesoires limit :maxPage offset :nPage;";
             $resultset= $this->_db->prepare($query);
-            $resultset->execute();            
+            $resultset->bindValue(":maxPage",$maxPage);
+            $resultset->bindValue(":nPage",$nPage);
+            $resultset->execute();           
         }
         catch(PDOException $e) {
             print "Echec de la requ&ecirc;te ".$e->getMessage();
@@ -23,5 +26,21 @@ class AccesoireManager extends Accesoire {
         }
 
         return $_accesoiresArray;
- } 
+    }
+    
+    public function countAccesoire(){
+        $cpt = 0;
+        try 
+        {   $query="select * from accesoires;";
+            $resultset= $this->_db->prepare($query);
+            $resultset->execute();            
+        }
+        catch(PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        while($data = $resultset->fetch())  {
+            $cpt++;
+        }
+        return $cpt;
+    }
 }

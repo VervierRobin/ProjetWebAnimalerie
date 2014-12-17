@@ -1,22 +1,29 @@
-<h2>Découvrez nos produits</h2>
+<h2 align="center">Découvrez nos produits</h2>
 <?php
         try
         {   if (isset($_GET['envoi_choix'])) {
+                
+                $pageActuelle = 1;
+                $maxElementsPage = 5;
+                
+                if(isset($_GET["numpage"])) {
+                    $pageActuelle = $_GET["numpage"];
+                }
+                
                 switch ($_GET['choix']) {
-
+                    
                     case 1 :    $mg = new ProduitSoinManager($db);
-                                $pageActuelle = 1; $maxElementsPage = 10;
                                 $listeProduitsSoins = $mg->getListeProduitSoin($pageActuelle,$maxElementsPage);
                                 $nbreProduitsSoins = count($listeProduitsSoins);
                                 break;
 
                     case 2 :    $mg2 = new NourritureManager($db);
-                                $listeNourriture = $mg2->getListeNourriture();
+                                $listeNourriture = $mg2->getListeNourriture($pageActuelle,$maxElementsPage);
                                 $nbreNourriture = count($listeNourriture);
                                 break;
 
                     case 3 :    $mg3 = new AccesoireManager($db);
-                                $listeAccesoire = $mg3->getListeAccesoire();
+                                $listeAccesoire = $mg3->getListeAccesoire($pageActuelle,$maxElementsPage);
                                 $nbreAccesoire = count($listeAccesoire);
                                 break;
 
@@ -35,6 +42,10 @@
 <form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
     <table>
         <tr>
+            <!-- <td>
+                <input type="submit" name="envoi_choix" value="Go" id="envoi_choix"/>                
+            </td> -->
+            
             <td>
                 <select name="choix" id="choix"> 
                     <option value=-1>Faites votre choix</option>
@@ -43,11 +54,7 @@
                     <option value=3>Accesoires</option>
                     <option value="4">Documentation</option>
                 </select>
-            </td>
-            
-            <td>
-                <input type="submit" name="envoi_choix" value="Go" id="envoi_choix"/>                
-            </td>
+            </td>   
         </tr>
     </table>
 </form>
@@ -57,16 +64,16 @@
         
         $nbrePage = floor($mg->countProduitSoin()/$maxElementsPage)+1;
         
-        echo '<p align="center">Page : ';
+        echo '<h3 align="center">Page : ';
         for ( $i = 1; $i <= $nbrePage; $i++ )
-        {    if( $i == $pageActuelle)
-             {  echo ' [ '.$i.' ] '; 	
+        {    if( $i == $pageActuelle)   {  
+                echo ' [ '.$i.' ] '; 	
              }
-             else 
-             {  echo ' <a>'.$i.'</a> ';
+             else {  
+                 echo ' <a href="index.php?choix=1&envoi_choix=Go&numpage='.$i.'">'.$i.'</a> ';
              }
         }
-        echo '</p>';
+        echo '</h3>';
 ?>
     <table>
 <?php
@@ -118,6 +125,19 @@
 
 <?php
     if (isset($nbreNourriture)) {
+        
+        $nbrePage = floor($mg2->countNourriture()/$maxElementsPage)+1;
+        
+        echo '<h3 align="center">Page : ';
+        for ( $i = 1; $i <= $nbrePage; $i++ )
+        {    if( $i == $pageActuelle)   {  
+                echo ' [ '.$i.' ] '; 	
+             }
+             else {  
+                 echo ' <a href="index.php?choix=1&envoi_choix=Go&numpage='.$i.'">'.$i.'</a> ';
+             }
+        }
+        echo '</h3>';
 ?>
     <table>
 <?php
@@ -136,6 +156,51 @@
                         <tr> 
                             <td>Nom du produit</td>
                             <td><?php print $listeNourriture[$i]->description ?></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+<?php
+        }
+?>
+    </table>
+<?php   
+    }
+?>
+
+<?php
+    if (isset($nbreAccesoire)) {
+        
+        $nbrePage = floor($mg3->countAccesoire()/$maxElementsPage)+1;
+        
+        echo '<h3 align="center">Page : ';
+        for ( $i = 1; $i <= $nbrePage; $i++ )
+        {    if( $i == $pageActuelle)   {  
+                echo ' [ '.$i.' ] '; 	
+             }
+             else {  
+                 echo ' <a href="index.php?choix=1&envoi_choix=Go&numpage='.$i.'">'.$i.'</a> ';
+             }
+        }
+        echo '</h3>';
+?>
+    <table>
+<?php
+        for ($i = 0; $i < $nbreAccesoire; $i++) {
+?>
+            <tr>
+                <td>
+                   <img src="../Admin/images/accesoires/<?php print $listeAccesoire[$i]->photo;?>" alt="<?php print $listeAccesoire[$i]->descphoto; ?>" /> 
+                </td>
+                
+                <td> 
+                    <table>
+                        <tr> 
+                            <td colspan=2><h3>Produit alimentaire n°<?php print $i+1?></h3></td> 
+                        </tr>
+                        <tr> 
+                            <td>Nom du produit</td>
+                            <td><?php print $listeAccesoire[$i]->description ?></td>
                         </tr>
                     </table>
                 </td>

@@ -27,7 +27,7 @@ class ProduitSoinManager extends ProduitSoin {
     
     public function getListeProduitSoin($nPage, $maxPage){
         try {
-            $nPage = ($nPage-1)*5;
+            $nPage = ($nPage-1)*$maxPage;
             $query="select * from produitsoin limit :maxPage offset :nPage;";
             $resultset= $this->_db->prepare($query);
             $resultset->bindValue(":maxPage",$maxPage);

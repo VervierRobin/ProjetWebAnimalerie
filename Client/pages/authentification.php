@@ -13,8 +13,12 @@ if(isset($_POST['submit_login_x'])) {
     }
     
 }
-if ( isset($_POST('annuler_x')) ) {
+if ( isset($_POST['annuler_x']) ) {
         header('Location: http://localhost/projects/Projet3e/Publique/index.php');
+}
+
+if ( isset($_POST['inscription_x'])) {
+    header('Location: http://localhost/projects/Projet3e/Client/pages/inscription_client.php');
 }
 
 ?>
@@ -23,6 +27,18 @@ if ( isset($_POST('annuler_x')) ) {
     <legend>Authentifiez-vous</legend>
     <form action="<?php print $_SERVER['PHP_SELF']; ?>" method='post' id="form_auth">
         <table>
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="image" value="Inscription" src="../Admin/images/bouton_inscription.png" id="inscription" name="inscription"/>
+                </td>	
+            </tr>
+            
+            <tr>
+                <td colspan="2">
+                    &nbsp;
+                </td>	
+            </tr>
+            
             <tr>
                 <td>Login : <?php //print " session : ".$_SESSION['admin'];?></td>
                 <td><input type="text" id="login" name="login" /></td>
@@ -46,6 +62,8 @@ if ( isset($_POST('annuler_x')) ) {
                     <input type="image" src="../Admin/images/annuler.png" name="annuler" id="annuler" />
                 </td>	
             </tr>
+            
+            
         </table>	
     </form>
 </fieldset>
