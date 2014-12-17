@@ -79,54 +79,51 @@ if (isset($_POST['submit_enrAn_x'])) {
             </tr>
             <tr>
                 <td>Pays : </td>
-                
                 <td>    
-                    <select name="pays" id="pays"> 
-                            <option value=-1>Faites votre choix</option>
-                    <?php
-                            for ($i = 0; $i < $nbrPays; $i++) {
-                    ?>
-                                <option value="<?php print $liste_Pays[$i]->idpays; ?>"><?php print $liste_Pays[$i]->nompays;?></option>
-                    <?php
+            <select name="pays" id="pays"> 
+                        <option value=-1>Faites votre choix</option>
+                        <?php
+                        for ($i = 0; $i < $nbrPays; $i++) {
+                            ?>
+                            <option value="<?php print $liste_Pays[$i]->idpays; ?>">
+                            <?php print $liste_Pays[$i]->nompays;
+                            ?>
+                            </option>
+                                <?php
                             }
-                    ?>
+                            ?>
                     </select>
                 </td>
             </tr>
-            
             <tr>
                 <td>Prix HTVA : (€)</td>
                 <td><input type="text" id="px" name="px" /></td>
             </tr>          
-            
             <tr>
                 <td>TVA : (%)</td>
                 <td><input type="text" id="tva" name="tva" /></td>
             </tr>
-            
             <tr>
                 <td>Nom photo : </td>
                 <td><input type="text" id="photo" name="photo" /></td>
             </tr>
-            
             <tr>
                 <td>Description photo : </td>
                 <td><input type="text" id="descPhoto" name="descPhoto" /></td>
-            </tr>
-            
+            </tr>  
             <tr>
                 <td>Stock : </td>
                 <td><input type="number" id="stock" name="stock" /></td>
             </tr>            
-            
             <tr>
                 <td colspan="2">
                     &nbsp;
                 </td>	
             </tr>
-            
             <tr>
-                <td align="center" colspan="2">
+                <td colspan="2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <input type="image" src="./images/valider.png" name="submit_enrAn" id="submit_enrAn"  />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="image" src="./images/annuler.png" name="annulerAn" id="annulerAn" />

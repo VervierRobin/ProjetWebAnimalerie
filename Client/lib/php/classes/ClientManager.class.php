@@ -40,4 +40,28 @@ class ClientManager extends Client {
         }
         return $retour;
     }
+    
+    public function addClient($nom,$prenom,$pays,$numeroTel,$rue,$cp,$ville,$pseudo,$mdp,$mail) {
+        try 
+        {   $query = "select add_client(:nom,:prenom,:pays,:numeroTel,:rue,:cp,:ville,:pseudo,:mdp,:mail) as retour";
+            $sql = $this->_db->prepare($query);
+            $sql->bindValue(':nom', $nom);
+            $sql->bindValue(':prenom',$prenom);
+            $sql->bindValue(':pays', $pays);
+            $sql->bindValue(':numeroTel', $numeroTel);
+            $sql->bindValue(':rue', $rue);
+            $sql->bindValue(':cp', $cp);
+            $sql->bindValue(':ville', $ville);
+            $sql->bindValue(':pseudo', $pseudo);
+            $sql->bindValue(':mdp', $mdp);
+            $sql->bindValue(':mail', $mail);
+            $sql->execute();
+            $retour = $sql->fetchColumn(0);                     
+        } 
+        catch(PDOException $e) {    
+            print "Echec de la requ&ecirc;te.". $e;
+        }
+        return $retour;
+    }
+    
 }
