@@ -38,15 +38,17 @@
                 <section id="deconnexion">
                     <?php
                     if (isset($_SESSION['client'])) {
-                        ?>
+                       if ($_SESSION['client'] == 1) { ?>
                         <a href="./lib/php/disconnect.php">Déconnexion</a>
                         <?php
                     }
+                                       }
                     ?>
                 </section>
             </header>
             <?php
             //$_SESSION['admin']="accueil";
+            
             if (!isset($_SESSION['client'])) {
                 ?>
                 <section id="login_form">
@@ -55,7 +57,8 @@
                     ?>
                 </section>
                 <?php
-            } else {
+            } else { 
+                if($_SESSION['client']==1){
                 ?>
                 <section id="colGauche">
                     <nav>
@@ -83,13 +86,31 @@
                         ?>
                     </div>
                 </section>
+            <?php 
+              } 
+              else{?>
+             <section id="colGauche">
+                   
+                </section>
+            <section id="contenu">
+                    <div id="main">
+                <?php   
+                 if (file_exists('./pages/inscription_client.php')) {
+                            include ('./pages/inscription_client.php');
+                        }
+              
+            ?>
 
-            </section> 
+                    </div>
+                </section>
+          <?php   }
+            ?>
+        </section> 
             <footer>
                Editeurs responsables : robin.vervier@condorcet.be - julien.lefevree@condorcet.be
             </footer>
             <?php
-        } //fin session existe
+            } //fin session existe
         ?>
     </body>
 </html>

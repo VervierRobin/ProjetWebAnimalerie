@@ -18,7 +18,9 @@ if ( isset($_POST['annuler_x']) ) {
 }
 
 if ( isset($_POST['inscription_x'])) {
-    header('Location: http://localhost/projects/Projet3e/Client/pages/inscription_client.php');
+    
+    $_SESSION['client']=2;
+    header('Location: http://localhost/projects/Projet3e/Client/index.php');
 }
 
 ?>
