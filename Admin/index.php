@@ -15,6 +15,13 @@ foreach (glob('./lib/js/jquery/*.js') as $js) {
     <head>
         <title>Administration</title>
         <meta charset="UTF-8"/>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="lib/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="./lib/css/style_pc.css" />
         <link rel="stylesheet" type="text/css" href="./lib/css/style_jquery.css"/>
         <link rel="stylesheet" type="text/css" href="./lib/css/mediaqueries.css" />

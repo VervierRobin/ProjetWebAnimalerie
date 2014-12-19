@@ -57,7 +57,8 @@
                     ?>
                 </section>
                 <?php
-            } else { 
+            } 
+            else { 
                 if($_SESSION['client']==1){
                 ?>
                 <section id="colGauche">

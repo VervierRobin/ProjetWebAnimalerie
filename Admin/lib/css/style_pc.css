@@ -147,7 +147,7 @@ header {
 
 #colGauche {
     float:left; 
-    width:18%;
+    width:20%;
     margin-top:2%; 
 
 }		
@@ -201,7 +201,7 @@ footer {
     float :left; 
     margin-top:2%; 
     margin-left:2%;
-    width:80%;
+    width:78%;
 
 }	
 #main {
@@ -219,4 +219,6 @@ footer {
     max-width:15%;
 }
 
-
+#table-ajoutAn td{
+    padding:5px;
+}

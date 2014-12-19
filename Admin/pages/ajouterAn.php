@@ -24,10 +24,15 @@ if (isset($_POST['submit_enrAn_x'])) {
 
 
 <section id="message"><?php if (isset($message)) print $message; ?></section>
-<fieldset id="fieldset_enrAnim">
-    <legend>Ajout d'un animal </legend>
-    <form action="<?php print $_SERVER['PHP_SELF']; ?>" method='post' id="form_nvAdm">
-        <table>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Ajout d'un animal</h3>
+  </div>
+  <div class="panel-body">
+ <form action="<?php print $_SERVER['PHP_SELF']; ?>" method='post' id="form_nvAdm">
+        <table id="table-ajoutAn">
             <tr>
                 <td>Espèce : <?php //print " session : ".$_SESSION['admin'];  ?></td>
                 <td>
@@ -133,5 +138,6 @@ if (isset($_POST['submit_enrAn_x'])) {
 
         </table>	
     </form>
-</fieldset>
+  </div>
+</div>
 <div id="shadow" class="popup"></div>
