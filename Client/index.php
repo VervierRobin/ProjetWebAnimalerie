@@ -59,7 +59,7 @@
                 <?php
             } 
             else { 
-                if($_SESSION['client']==1){
+                if($_SESSION['client']>0){
                 ?>
                 <section id="colGauche">
                     <nav>

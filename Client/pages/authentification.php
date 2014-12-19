@@ -3,8 +3,8 @@ if(isset($_POST['submit_login_x'])) {
     $mg = new ClientManager($db);
     $retour=$mg->isClient($_POST['login'],$_POST['password']);
     
-    if($retour==1) {    
-        $_SESSION['client']=1;
+    if($retour >0) {    
+        $_SESSION['client']=$retour;
         $message="Authentifié!";
         header('Location: http://localhost/projects/Projet3e/Client/index.php');
     } 
@@ -19,7 +19,7 @@ if ( isset($_POST['annuler_x']) ) {
 
 if ( isset($_POST['inscription_x'])) {
     
-    $_SESSION['client']=2;
+    $_SESSION['client']=-2;
     header('Location: http://localhost/projects/Projet3e/Client/index.php');
 }
 

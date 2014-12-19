@@ -24,4 +24,6 @@ class Client {
         $this->_attributs[$key]=$value;
       // =  _attributs['nom']="Arthur";
     }
+    
+    
 }

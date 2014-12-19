@@ -3,12 +3,12 @@
 class ClientManager extends Client {
     private $_db;
     private $_clientArray = array();
-    
+        
     public function __construct($db) {
         $this->_db = $db;
     }
     
-    public function getListeSelection($choix){
+    public function getClient($choix){
         try {
             $query="select * from client where idclient =:idclient";
             $resultset= $this->_db->prepare($query);

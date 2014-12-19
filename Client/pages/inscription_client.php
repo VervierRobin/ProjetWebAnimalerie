@@ -6,8 +6,8 @@ $nbrPays = count($liste_Pays); //Compte le nombre d'élements
 if (isset($_POST['submit_nouveau_client_x'])) {
     $mgClient = new ClientManager($db);
     $retour = $mgClient->addClient($_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['numeroTel'], $_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
-    if ($retour == 1) {
-        $_SESSION['client'] = 1;
+    if ($retour > 0) {
+        $_SESSION['client'] = $retour;
         $message = "Nouveau client enregistré";
         header('Location: http://localhost/projects/Projet3e/Client/index.php');
     } 
