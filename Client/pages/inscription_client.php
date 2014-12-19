@@ -10,7 +10,8 @@ if (isset($_POST['submit_nouveau_client_x'])) {
         $_SESSION['client'] = 1;
         $message = "Nouveau client enregistré";
         header('Location: http://localhost/projects/Projet3e/Client/index.php');
-    } else {
+    } 
+    else {
         $message = "Données incorrectes";
     }
 }

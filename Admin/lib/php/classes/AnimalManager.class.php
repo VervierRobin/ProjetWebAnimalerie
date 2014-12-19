@@ -48,28 +48,28 @@ class AnimalManager extends Animal {
     }
 
     public function addAnimal($choixEsp, $race, $num, $couleur, $taille, $poids, $choixSex, $px, $tva, $photo, $descPhoto, $stock, $pays) {
-        try {
-            if($choixEsp == -1 && $race =='' && $num == '' && $taille == '' && $poids =='' && $px == '' && $tva =='' && $stock =='' && $pays == -1){
+        try 
+        {   if($choixEsp == -1 && $race =='' && $num == '' && $taille == '' && $poids =='' && $px == '' && $tva =='' && $stock =='' && $pays == -1){
                 $retour = 0;
             }
             else {
-            $query = "select add_animal(:choixEsp,:race,:num,:couleur, :taille,:poids,:choixSex,:px, :tva,:photo, :descPhoto, :stock, :pays) as retour";
-            $sql = $this->_db->prepare($query);
-            $sql->bindValue(':choixEsp', $_POST['choixEsp']);
-            $sql->bindValue(':race',$_POST['race']);
-            $sql->bindValue(':num', $_POST['num']);
-            $sql->bindValue(':couleur', $_POST['couleur']);
-            $sql->bindValue(':taille', $_POST['taille']);
-            $sql->bindValue(':poids', $_POST['poids']);
-            $sql->bindValue(':choixSex', $_POST['choixSex']);
-            $sql->bindValue(':px', $_POST['px']);
-            $sql->bindValue(':tva', $_POST['tva']);
-            $sql->bindValue(':photo', $_POST['photo']);
-            $sql->bindValue(':descPhoto', $_POST['descPhoto']);
-            $sql->bindValue(':stock', $_POST['stock']);
-            $sql->bindValue(':pays', $_POST['pays']);
-            $sql->execute();
-            $retour = $sql->fetchColumn(0);
+                $query = "select add_animal(:choixEsp,:race,:num,:couleur, :taille,:poids,:choixSex,:px, :tva,:photo, :descPhoto, :stock, :pays) as retour";
+                $sql = $this->_db->prepare($query);
+                $sql->bindValue(':choixEsp', $choixEsp);
+                $sql->bindValue(':race', $race);
+                $sql->bindValue(':num', $num);
+                $sql->bindValue(':couleur', $couleur);
+                $sql->bindValue(':taille', $taille);
+                $sql->bindValue(':poids', $poids);
+                $sql->bindValue(':choixSex', $choixSex);
+                $sql->bindValue(':px', $px);
+                $sql->bindValue(':tva', $tva);
+                $sql->bindValue(':photo', $photo);
+                $sql->bindValue(':descPhoto', $descPhoto);
+                $sql->bindValue(':stock', $stock);
+                $sql->bindValue(':pays', $pays);
+                $sql->execute();
+                $retour = $sql->fetchColumn(0);
             }
         } 
         catch(PDOException $e) {    
@@ -77,5 +77,4 @@ class AnimalManager extends Animal {
         }
         return $retour;
     }
-
 }
