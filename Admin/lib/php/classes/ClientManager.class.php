@@ -64,10 +64,11 @@ class ClientManager extends Client {
         return $retour;
     }
     
-    public function updateClient($nom,$prenom,$pays,$numeroTel,$rue,$cp,$ville,$pseudo,$mdp,$mail) {
+    public function updateClient($idClient,$nom,$prenom,$pays,$numeroTel,$rue,$cp,$ville,$pseudo,$mdp,$mail) {
         try 
-        {   $query = "select update_client(:nom,:prenom,:pays,:numeroTel,:rue,:cp,:ville,:pseudo,:mdp,:mail) as retour";
+        {   $query = "select update_client(:idClient,:nom,:prenom,:pays,:numeroTel,:rue,:cp,:ville,:pseudo,:mdp,:mail) as retour";
             $sql = $this->_db->prepare($query);
+            $sql->bindValue(':idClient',$idClient);
             $sql->bindValue(':nom', $nom);
             $sql->bindValue(':prenom',$prenom);
             $sql->bindValue(':pays', $pays);

@@ -1,24 +1,24 @@
 <?php
-$mgPays = new PaysManager($db);
-$liste_Pays = $mgPays->getListePays();
-$nbrPays = count($liste_Pays); //Compte le nombre d'élements
+    $mgPays = new PaysManager($db);
+    $liste_Pays = $mgPays->getListePays();
+    $nbrPays = count($liste_Pays); //Compte le nombre d'élements
 
-if (isset($_POST['submit_nouveau_client_x'])) {
-    $mgClient = new ClientManager($db);
-    $retour = $mgClient->addClient($_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['numeroTel'], $_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
-    if ($retour > 0) {
-        $_SESSION['client'] = $retour;
-        $message = "Nouveau client enregistré";
-        header('Location: http://localhost/projects/Projet3e/Client/index.php');
-    } 
-    else {
-        $message = "Données incorrectes";
+    if (isset($_POST['submit_nouveau_client_x'])) {
+        $mgClient = new ClientManager($db);
+        $retour = $mgClient->addClient($_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['numeroTel'], $_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
+        if ($retour > 0) {
+            $_SESSION['client'] = $retour;
+            $message = "Nouveau client enregistré";
+            header('Location: http://localhost/projects/Projet3e/Client/index.php');
+        } 
+        else {
+            $message = "Données incorrectes";
+        }
     }
-}
-if (isset($_POST['annulerCl_x'])) {
-    session_destroy();
-    header('Location: http://localhost/projects/Projet3e/Client/index.php');
-}
+    if (isset($_POST['annulerCl_x'])) {
+        session_destroy();
+        header('Location: http://localhost/projects/Projet3e/Client/index.php');
+    }
 ?>
 
 

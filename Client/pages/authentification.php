@@ -3,7 +3,7 @@ if(isset($_POST['submit_login_x'])) {
     $mg = new ClientManager($db);
     $retour=$mg->isClient($_POST['login'],$_POST['password']);
     
-    if($retour >0) {    
+    if($retour > 0) {    
         $_SESSION['client']=$retour;
         $message="Authentifié!";
         header('Location: http://localhost/projects/Projet3e/Client/index.php');

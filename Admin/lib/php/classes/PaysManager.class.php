@@ -24,4 +24,19 @@ class PaysManager extends Pays {
         }
         return $_ClassiArray;
     }
+    
+    public function addPays($nomPays,$continent) {
+        try 
+        {   $query = "select add_pays(:nomPays,:continent) as retour";
+            $sql = $this->_db->prepare($query);
+            $sql->bindValue(':nomPays', $nomPays);
+            $sql->bindValue(':continent',$continent);
+            $sql->execute();
+            $retour = $sql->fetchColumn(0);                     
+        } 
+        catch(PDOException $e) {    
+            print "Echec de la requ&ecirc;te.". $e;
+        }
+        return $retour;
+    }
 }

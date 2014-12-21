@@ -24,4 +24,22 @@ class ClassificationManager extends Classification {
         }
         return $_ClassiArray;
     }
+    
+    public function addClassification ($classe, $ordre, $famille, $genre, $espece) {
+        try 
+        {   $query = "select add_classification(:classe,:ordre,:famille,:genre,:espece) as retour";
+            $sql = $this->_db->prepare($query);
+            $sql->bindValue(':classe', $classe);
+            $sql->bindValue(':ordre',$ordre);
+            $sql->bindValue(':famille', $famille);
+            $sql->bindValue(':genre', $genre);
+            $sql->bindValue(':espece', $espece);
+            $sql->execute();
+            $retour = $sql->fetchColumn(0);                     
+        } 
+        catch(PDOException $e) {    
+            print "Echec de la requ&ecirc;te.". $e;
+        }
+        return $retour;  
+    }
 }

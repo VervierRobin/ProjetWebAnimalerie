@@ -1,15 +1,15 @@
 <!doctype html>
 <?php
 //INDEX ADMIN
-include ('./lib/php/liste_include.php');
-$db = Connexion::getInstance($dsn, $user, $pass);
-session_start();
-$scripts = array();
-$i = 0;
-foreach (glob('./lib/js/jquery/*.js') as $js) {
-    $scripts[$i] = $js;
-    $i++;
-}
+    include ('./lib/php/liste_include.php');
+    $db = Connexion::getInstance($dsn, $user, $pass);
+    session_start();
+    $scripts = array();
+    $i = 0;
+    foreach (glob('./lib/js/jquery/*.js') as $js) {
+        $scripts[$i] = $js;
+        $i++;
+    }
 ?>
 <html>
     <head>
