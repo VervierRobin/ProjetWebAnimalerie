@@ -86,6 +86,10 @@
                         if (file_exists('./pages/' . $_SESSION['page'] . '.php')) {
                             include ('./pages/' . $_SESSION['page'] . '.php');
                         }
+                        else
+                           if (file_exists('./pages/construction.php')) {
+                            include ('./pages/construction.php');
+                        } 
                         ?>
                     </div>
                 </section>
