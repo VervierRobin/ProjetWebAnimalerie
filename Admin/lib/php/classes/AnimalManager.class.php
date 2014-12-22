@@ -34,7 +34,7 @@ class AnimalManager extends Animal {
 
     public function getListeAnimal() {
         try {
-            $query = "select * from animal";
+            $query = "select * from vue_animal order by espece";
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
         } catch (PDOException $e) {

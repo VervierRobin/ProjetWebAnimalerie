@@ -33,7 +33,7 @@
             <?php
         }
         ?>
-            
+        <script src="./lib/js/fonctionsJquery.js"></script>   
         <script src="./lib/js/fonctionsJqueryAdmin.js"></script>
     </head>
     <body>
@@ -91,7 +91,7 @@
                 </section>
 
             </section> 
-            <footer>
+            <footer class="panel-footer">
                Editeurs responsables : robin.vervier@condorcet.be - julien.lefevree@condorcet.be
             </footer>
             <?php

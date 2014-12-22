@@ -126,9 +126,8 @@ if (isset($_POST['submit_enrAn_x'])) {
                 </td>	
             </tr>
             <tr>
-                <td colspan="2">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                <td align="center" colspan="2" >
+                    
                     <input type="image" src="./images/valider.png" name="submit_enrAn" id="submit_enrAn"  />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="image" src="./images/annuler.png" name="annulerAn" id="annulerAn" />

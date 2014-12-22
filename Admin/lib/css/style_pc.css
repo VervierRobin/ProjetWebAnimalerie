@@ -222,3 +222,21 @@ footer {
 #table-ajoutAn td{
     padding:5px;
 }
+
+
+
+.img-redim {
+  width: 50%;
+}
+
+.img-redim:hover {
+    background:#FFFFFF;
+    border: 1px solid black;
+    left: -110px;
+    padding: 3px;
+    position: relative; 
+    top: -50px;
+    width: 100%;
+}
+
+
