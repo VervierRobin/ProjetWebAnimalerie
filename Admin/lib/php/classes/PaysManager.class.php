@@ -1,6 +1,6 @@
 <?php
 
-class PaysManager extends Pays {
+class PaysManager extends Pays implements CRUD {
 
     private $_db;
     private $_ClassiArray = array();
@@ -41,4 +41,7 @@ class PaysManager extends Pays {
         }
         return $retour;
     }
+
+    
+
 }

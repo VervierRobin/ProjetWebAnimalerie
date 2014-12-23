@@ -6,6 +6,7 @@
 
         <li role="presentation" class="bottomLine" > <a href="index.php?page=nouvelleCommande">Nouvelle commande</a></li> 
         <li role="presentation" class="bottomLine"> <a href="index.php?page=modification_client">Modifier infos</a></li>
+        <li role="presentation" class="bottomLine"> <a href="index.php?page=modification_clientMP">Modifier mot de passe</a></li>
         <li role="presentation" class="bottomLine"> <a href="index.php?page=disconnect">Deconnexion</a></li>
         <?php
     } else {
@@ -16,6 +17,9 @@
         <?php ($_GET["page"] == "modification_client" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element 
         ?>
         <li role="presentation" class="<?php print $active; ?>" > <a href="index.php?page=modification_client">Modifier infos</a></li>
+        <?php ($_GET["page"] == "modification_clientMP" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element 
+        ?>
+        <li role="presentation" class="<?php print $active; ?>" > <a href="index.php?page=modification_clientMP">Modifier mot de passe</a></li>
         <li role="presentation" class="bottomLine"> <a href="index.php?page=disconnect">Deconnexion</a></li>
 <?php } ?>
 </ul>

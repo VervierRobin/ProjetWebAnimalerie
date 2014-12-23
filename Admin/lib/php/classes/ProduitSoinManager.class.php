@@ -1,6 +1,6 @@
 <?php
 
-class ProduitSoinManager extends ProduitSoin {
+class ProduitSoinManager extends ProduitSoin implements CRUD{
     private $_db;
     private $_produitSoinArray = array();
     private $_animal;

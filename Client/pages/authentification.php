@@ -45,7 +45,7 @@ if ( isset($_POST['inscription_x'])) {
             
            <tr> 
                 <td class="MaformLogin glyphicon glyphicon-user">
-                    <input type="text" id="login" name="login" placeholder="Login" /> 
+                    <input class="tailleChamp" type="text" id="login" name="login" placeholder="Login" /> 
                 </td>
              </tr> 
              <tr>
@@ -53,7 +53,7 @@ if ( isset($_POST['inscription_x'])) {
             </tr>   
             <tr>
                 <td class="MaformLogin glyphicon glyphicon-lock" >
-                    <input type="password" id="password" name="password" placeholder="Password" />
+                    <input class="tailleChamp" type="password" id="password" name="password" placeholder="Password" />
                 </td>
             </tr>
             <tr>

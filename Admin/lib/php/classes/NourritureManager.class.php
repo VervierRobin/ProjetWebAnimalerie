@@ -1,6 +1,6 @@
 <?php
 
-class NourritureManager extends Nourriture {
+class NourritureManager extends Nourriture implements CRUD {
     private $_db;
     private $_nourritureArray = array();
     
@@ -43,4 +43,7 @@ class NourritureManager extends Nourriture {
         }
         return $cpt;
     }
+
+   
+
 }

@@ -24,20 +24,23 @@
 #login_form  {    
     position:absolute;
     top:250px;
-    left:600px;
+    left:550px;
     width:450px;
     position:fixed;
     background-color:#BBB;
     padding:30px;
     color:red;
-    font-size: 16px;
-    -moz-border-radius: 1px;
+    //font-size: 14px;
+   -moz-border-radius: 1px;
     -moz-box-shadow: 0 0 50px #aaa;
     -webkit-border-radius: 50px;
     -webkit-box-shadow: 0 0 50px #aaa;
     color:black;
 }
 
+.tailleChamp{
+    width: 230px;   
+}
 
 /*..............Accueil ................*/
 

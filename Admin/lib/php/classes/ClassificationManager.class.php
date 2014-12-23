@@ -1,6 +1,6 @@
 <?php
 
-class ClassificationManager extends Classification {
+class ClassificationManager extends Classification implements CRUD {
 
     private $_db;
     private $_ClassiArray = array();

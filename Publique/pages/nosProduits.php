@@ -1,5 +1,10 @@
-<h2 align="center">Découvrez nos produits</h2>
-<?php
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">D&eacute;couvrez nos produits</h3>
+    </div>
+    <div class="panel-body">
+    
+    <?php
         try
         {   if (isset($_GET['envoi_choix'])) {
                 
@@ -212,3 +217,4 @@
 <?php   
     }
 ?>
+ </div>

@@ -1,6 +1,6 @@
 <?php
 
-class AnimalManager extends Animal {
+class AnimalManager extends Animal implements CRUD {
 
     private $_db;
     private $_AnimalArray = array();
@@ -13,7 +13,7 @@ class AnimalManager extends Animal {
         $cpt = 0;
         if ($choix != -1) {
             try {
-                $query = "select * from vue_animal where idclassification_classification =:classification ";
+                $query = "select * from vue_animal where idclassification_classification =:classification order by espece,race";
                 $resultset = $this->_db->prepare($query);
                 $resultset->bindValue(1, $choix, PDO::PARAM_INT);
                 $resultset->execute();
@@ -34,7 +34,7 @@ class AnimalManager extends Animal {
 
     public function getListeAnimal() {
         try {
-            $query = "select * from vue_animal order by espece";
+            $query = "select * from vue_animal order by espece,race";
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
         } catch (PDOException $e) {

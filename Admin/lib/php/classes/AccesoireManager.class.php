@@ -1,6 +1,6 @@
 <?php
 
-class AccesoireManager extends Accesoire {
+class AccesoireManager extends Accesoire implements CRUD {
     private $_db;
     private $_accesoiresArray = array();
     

@@ -1,6 +1,6 @@
 <?php
 
-class DocumentationManager extends Documentation {
+class DocumentationManager extends Documentation implements CRUD {
     private $_db;
     private $_documentationArray = array();
     
@@ -22,5 +22,8 @@ class DocumentationManager extends Documentation {
             $_documentationArray[] = new Documentation($data);
         }
         return $_documentationArray;
-    } 
+    }
+
+   
+
 }

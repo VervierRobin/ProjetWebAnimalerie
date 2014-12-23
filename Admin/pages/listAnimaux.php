@@ -110,5 +110,6 @@ $nbr = count($liste_Class); //Compte le nombre d'élements
            } //fin du if
             ?>      
             </table>
+         </div>
 
 

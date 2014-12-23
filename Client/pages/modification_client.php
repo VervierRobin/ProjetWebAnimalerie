@@ -7,13 +7,13 @@
         $mgCli = new ClientManager($db);
         $Cli = $mgCli->getClient($_SESSION['client']);
 
-        if (isset($_POST['submit_modification_client_x'])) {
+        if (isset($_POST['submit_modification_client'])) {
             //print $Cli[0]->idclient ." ". $_POST['nom'] ." ". $_POST['prenom'] ." ". $_POST['pays'] ." ". $_POST['numeroTel'] ." ". $_POST['rue'] ." ". $_POST['cp'] ." ". $_POST['ville'] ." ". $_POST['pseudo'] ." ". $_POST['mdp'] ." ". $_POST['mail'];
 
             $mgClient = new ClientManager($db);
-            $retour = $mgClient->updateClient($Cli[0]->idclient,$_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['numeroTel'], $_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST['pseudo'], $_POST['mdp'], $_POST['mdp2'], $_POST['mail']);
+            $retour = $mgClient->updateClient($Cli[0]->idclient,$_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['numeroTel'], $_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST['pseudo'], $_POST['mail']);
             print $retour;
-            if ( $retour = 1 ) {
+            if ( $retour == 1 ) {
                 //$_SESSION['client'] = 1;
                 $message = "Modification effectuée avec succès";
                 header('Location: http://localhost/projects/Projet3e/Client/index.php');
@@ -97,15 +97,12 @@
                 <td><input type="text" value="<?php print $Cli[0]->pseudo ?>" id="pseudo" name="pseudo"/></td>
             </tr>
 
+            <!--
             <tr>
                 <th>Mot de passe : </th>
                 <td><input type="password" id="mdp" name="mdp"/></td>
             </tr>
-            
-            <tr>
-                <th>Mot de passe 2 : </th>
-                <td><input type="password2" id="mdp2" name="mdp2"/></td>
-            </tr>
+            -->
 
             <tr>
                 <th>Mail : </th>
