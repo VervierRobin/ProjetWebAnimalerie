@@ -27,7 +27,7 @@ class AnimalManager extends Animal {
             if ($cpt > 0) {
                 return $_AnimalArray;
             } else {
-                print "Aucun animal de cette catégorie n'est en vente pour le moment";
+                print "Aucun animal de cette espèce n'est en vente pour le moment";
             }
         }
     }
@@ -48,11 +48,9 @@ class AnimalManager extends Animal {
     }
 
     public function addAnimal($choixEsp, $race, $num, $couleur, $taille, $poids, $choixSex, $px, $tva, $photo, $descPhoto, $stock, $pays) {
+        if($choixEsp != -1 && $race !='' && $num != '' && $taille != '' && $poids !='' && $px != '' && $tva !='' && $stock !='' && $pays != -1 && is_numeric($px) && is_numeric($tva)){
         try 
-        {   if($choixEsp == -1 && $race =='' && $num == '' && $taille == '' && $poids =='' && $px == '' && $tva =='' && $stock =='' && $pays == -1){
-                $retour = 0;
-            }
-            else {
+        {   
                 $query = "select add_animal(:choixEsp,:race,:num,:couleur, :taille,:poids,:choixSex,:px, :tva,:photo, :descPhoto, :stock, :pays) as retour";
                 $sql = $this->_db->prepare($query);
                 $sql->bindValue(':choixEsp', $choixEsp);
@@ -71,10 +69,13 @@ class AnimalManager extends Animal {
                 $sql->execute();
                 $retour = $sql->fetchColumn(0);
             }
-        } 
         catch(PDOException $e) {    
             print "Echec de la requ&ecirc;te.". $e;
         }
-        return $retour;
+        
+        }
+        else {$retour = 0;}
+       return $retour; 
     }
+    
 }

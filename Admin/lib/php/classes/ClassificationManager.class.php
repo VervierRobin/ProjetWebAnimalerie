@@ -26,6 +26,7 @@ class ClassificationManager extends Classification {
     }
     
     public function addClassification ($classe, $ordre, $famille, $genre, $espece) {
+        if($espece != ''){
         try 
         {   $query = "select add_classification(:classe,:ordre,:famille,:genre,:espece) as retour";
             $sql = $this->_db->prepare($query);
@@ -40,6 +41,7 @@ class ClassificationManager extends Classification {
         catch(PDOException $e) {    
             print "Echec de la requ&ecirc;te.". $e;
         }
-        return $retour;  
+        return $retour;
+        }
     }
 }

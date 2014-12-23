@@ -14,13 +14,8 @@ if (isset($_POST['submit_login_x'])) {
 ?>
 
 
-
-
-
-
-
 <fieldset id="fieldset_login">
-    <legend class="legende">Authentification</legend>
+    <legend class="legende">Espace administrateur</legend>
 
     
     <form action="<?php print $_SERVER['PHP_SELF']; ?>" method='post' id="form_auth">
@@ -51,7 +46,7 @@ if (isset($_POST['submit_login_x'])) {
                 </td>	
             </tr>
             <tr>
-                <td align="center">
+                <td class="centrer">
                     <input type="image" src="./images/valider.png" name="submit_login" id="submit_login"  />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="image" src="./images/annuler.png" name="annuler" id="annuler" />
@@ -63,5 +58,3 @@ if (isset($_POST['submit_login_x'])) {
     <section id="message"><?php if (isset($message)) print $message; ?></section>
 
 </fieldset>
-<div id="shadow" class="popup"></div>
-

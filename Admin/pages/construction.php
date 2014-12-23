@@ -1,3 +1,1 @@
-<img src="./images/construct.gif" alt="icone Admin" width="90%"/>
-
-
+<img src="../Admin/images/construct.gif" alt="icone Admin" width="90%"/>

@@ -15,20 +15,8 @@
     text-align: center;
 }
 
-.txtRed {
-    color:#F00;
-}
-
-.txtRoseLogo {
-    color:#D91B57
-}
-
-.ecart {
-    padding-left:2%;
-}
-
-.txtDarkBlue {
-    color:#0C0E72;
+.droite{
+    text-align: right;
 }
 
 /***************************************Accueil admin *******************************/
@@ -47,24 +35,12 @@
     -moz-box-shadow: 0 0 50px #aaa;
     -webkit-border-radius: 50px;
     -webkit-box-shadow: 0 0 50px #aaa;
-}
-#overlay:target {
-    display:block;
-}
-
-.MaformLogin  {
     color:black;
-    ;
 }
 
-.legende{
-     font-size: 30px;
-}
 
 /*..............Accueil ................*/
-#chenil_img{
-    display:inline-block;
-}
+
 #texte_accueil {
     display:inline-block;
     max-width:40%;
@@ -75,11 +51,6 @@
     font-size:80%;
     font-style:italic;
 }
-
-#cacher {
-    margin-bottom:2%;
-}
-
 
 /*..............GABARIT ................*/
 
@@ -116,47 +87,6 @@ ul {
     padding-left:0%;
 }
 
-#menu ul {
-    padding-left:20%;
-}
-
-#menu li {
-    list-style-type:none;
-    text-align:left;
-}
-
-.bottomLine {
-    border-bottom-style:solid;
-    border-bottom-color:#CCC;
-    border-bottom-width:0.07em;
-}
-nav {
-
-}
-
-#menu a {
-    text-decoration:none; 
-}
-#menu a:hover{
-    color:white;
-    background-color:blue;	
-}
-.txtGras {
-    font-weight:bold;
-}
-footer {
-    clear:both; 
-    color:#333;
-    width:80%;
-    margin:0 auto; 
-    text-align:center;
-    padding-right:15px;
-    padding-top:1%;
-}	
-#label {
-    text-align:center;
-    padding-right:3%;
-}
 #contenu { 
     float :left; 
     margin-top:2%; 
@@ -179,10 +109,14 @@ footer {
     max-width:15%;
 }
 
-#table-ajoutAn td{
+#table-Form td{
     padding:5px;
+    
 }
-
+#table-Form th{
+    padding:5px;
+    text-align:right;
+}
 
 
 .img-redim {
@@ -199,4 +133,10 @@ footer {
     width: 100%;
 }
 
-
+footer {
+    clear:both; 
+    margin:0 auto; 
+    text-align:center;
+    padding-right:15px;
+    padding-top:1%;
+}	

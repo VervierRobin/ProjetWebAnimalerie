@@ -17,3 +17,19 @@
 #chenil_img {
     width:100%;
 }
+
+#login_form  {    
+    position:float;
+    top:10px;
+    left:1px;
+    width:50px;
+    position:fixed;
+    background-color:#222;
+    padding:3px;
+    color:red;
+    font-size: 1px;
+    -moz-border-radius: 1px;
+    -moz-box-shadow: 0 0 1px #aaa;
+    -webkit-border-radius: 1px;
+    -webkit-box-shadow: 0 0 1px #aaa;
+}

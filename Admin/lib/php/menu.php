@@ -1,8 +1,9 @@
 <!--menu Admin -->
 
-<ul class="nav nav-pills nav-stacked" style="margin-top:20px;">
+<ul class="nav nav-pills nav-stacked"> <!--style="margin-top:10px;"--> 
 
     <?php if (!isset($_GET['page'])) { ?>
+        <h3>Administration</h3>
         <li role="presentation" class="bottomLine" > <a href="index.php?page=nvAdmin">Nouveau admin</a></li> 
         <li role="presentation" class="bottomLine"> <a href="index.php?page=listeCommandes">Liste des commandes</a></li>
         <li role="presentation" class="bottomLine"> <a href="index.php?page=ListeClients">Liste des clients</a></li>
@@ -22,8 +23,9 @@
         <li role="presentation" class="bottomLine"> <a href="index.php?page=supPro">Supprimer</a></li>
 
         <?php
-    } else {
-        ($_GET["page"] == "nvAdmin" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element 
+    } else {?>
+        <h3>Administration</h3> 
+            <?php  ($_GET["page"] == "nvAdmin" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element 
         ?>
         <li role="presentation" class="<?php print $active; ?>" > <a href="index.php?page=nvAdmin">Nouveau admin</a></li> 
         <?php ($_GET["page"] == "listeCommandes" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element   ?>

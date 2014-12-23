@@ -15,8 +15,19 @@ foreach(glob('../Admin/lib/js/jquery/*.js') as $js)  {
     <head>
         <title>Au p'tit bonheur - Bienvenue</title>
         <meta charset="UTF-8"/>
-       <link rel="stylesheet" type="text/css" href="../Admin/lib/css/style_pc.css" />
+        
+               <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../Admin/lib/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="../Admin/lib/css/bootstrap-theme.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="../Admin/lib/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="../Admin/lib/css/style_pc.css" />
+        <link rel="stylesheet" type="text/css" href="../Admin/lib/css/style_jquery.css"/>
         <link rel="stylesheet" type="text/css" href="../Admin/lib/css/mediaqueries.css" />
+        
+      
         <?php
         foreach($scripts as $js) {
             ?>
@@ -62,7 +73,7 @@ foreach(glob('../Admin/lib/js/jquery/*.js') as $js)  {
             </section>
 
         </section> 
-        <footer>
+        <footer class="panel-footer">
             Editeurs responsables : robin.vervier@condorcet.be - julien.lefevree@condorcet.be
         </footer>
     </body>   

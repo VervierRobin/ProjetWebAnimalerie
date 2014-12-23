@@ -26,6 +26,8 @@ class PaysManager extends Pays {
     }
     
     public function addPays($nomPays,$continent) {
+       if($nomPays == "" || $continent == "-1")
+           return "Champ vide";
         try 
         {   $query = "select add_pays(:nomPays,:continent) as retour";
             $sql = $this->_db->prepare($query);

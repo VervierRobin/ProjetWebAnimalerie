@@ -6,7 +6,9 @@
     if (isset($_POST['submit_nouveau_client_x'])) {
         $mgClient = new ClientManager($db);
         $retour = $mgClient->addClient($_POST['nom'], $_POST['prenom'], $_POST['pays'], $_POST['numeroTel'], $_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST['pseudo'], $_POST['mdp'], $_POST['mail']);
+                
         if ($retour > 0) {
+            
             $_SESSION['client'] = $retour;
             $message = "Nouveau client enregistré";
             header('Location: http://localhost/projects/Projet3e/Client/index.php');
@@ -22,23 +24,25 @@
 ?>
 
 
-<section id="message"><?php if (isset($message)) print $message; ?></section>
-<fieldset id="fieldset_enrAnim">
-    <legend>Ajout d'un client </legend>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Ajout d'un client</h3>
+    </div>
+    <div class="panel-body">
     <form action="<?php print $_SERVER['PHP_SELF']; ?>" method='post' id="form_nvAdm">
-        <table>
+        <table id="table-Form">
             <tr>
-                <td>Nom : </td>
+                <th>Nom : </th>
                 <td><input type="text" id="nom" name="nom" /></td>
             </tr>
 
             <tr>
-                <td>Prenom : </td>
+                <th>Prenom : </th>
                 <td><input type="text" id="prenom" name="prenom" /></td>
             </tr>
 
             <tr>
-                <td>Pays : </td>
+                <th>Pays : </th>
                 <td>    
                     <select name="pays" id="pays"> 
                         <option value=-1>Faites votre choix</option>
@@ -54,37 +58,37 @@ for ($i = 0; $i < $nbrPays; $i++) {
             </tr>
 
             <tr>
-                <td>Numero de téléphone : </td>
+                <th>Numero de téléphone : </th>
                 <td><input type="text" id="numeroTel" name="numeroTel" /></td>
             </tr>  
 
             <tr>
-                <td>Rue : </td>
+                <th>Rue : </th>
                 <td><input type="text" id="rue" name="rue"/></td>
             </tr>
 
             <tr>
-                <td>Code Postal : </td>
+                <th>Code Postal : </th>
                 <td><input type="text" id="cp" name="cp"/></td>
             </tr>
 
             <tr>
-                <td>Ville : </td>
+                <th>Ville : </th>
                 <td><input type="text" id="ville" name="ville"/></td>
             </tr>
 
             <tr>
-                <td>Pseudonyme : </td>
+                <th>Pseudonyme : </th>
                 <td><input type="text" id="pseudo" name="pseudo"/></td>
             </tr>
 
             <tr>
-                <td>Mot de passe : </td>
+                <th>Mot de passe : </th>
                 <td><input type="password" id="mdp" name="mdp"/></td>
             </tr>
 
             <tr>
-                <td>Mail : </td>
+                <th>Mail : </th>
                 <td><input type="email" id="mail" name="mail"/></td>
             </tr>
 
