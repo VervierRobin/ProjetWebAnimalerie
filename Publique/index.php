@@ -53,6 +53,10 @@ foreach(glob('../Admin/lib/js/jquery/*.js') as $js)  {
                     }
                     ?>
                 </nav>
+                <aside id='pub'>
+                   <img src="../Admin/images/pub.JPG " alt="Publicité" class="img-pub" />
+                </aside>
+                
             </section>
             <section id="contenu">
                 <div id="main">

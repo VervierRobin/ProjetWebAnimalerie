@@ -109,8 +109,22 @@ ul {
     display:inline-block;
     margin-left:1%;
     margin-top:-1%;
-    max-width:15%;
+    max-width: 80%;
 }
+.img-pub {
+  width: 80%;
+}
+.img-pub:hover {
+    background:#FFFFFF;
+    border: 1px solid black;
+    left: -110px;
+    padding: 3px;
+    position: relative; 
+    top: -50px;
+    width: 200%;
+}
+    
+
 
 #table-Form td{
     padding:5px;

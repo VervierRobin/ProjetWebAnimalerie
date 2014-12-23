@@ -4,7 +4,7 @@
 
     <?php if (!isset($_GET['page'])) { ?>
         <h3>Administration</h3>
-        <li role="presentation" class="bottomLine" > <a href="index.php?page=nvAdmin">Nouveau admin</a></li> 
+        <li role="presentation" class="bottomLine" > <a href="index.php?page=nvAdmin">Nouveau webmaster</a></li> 
         <li role="presentation" class="bottomLine"> <a href="index.php?page=listeCommandes">Liste des commandes</a></li>
         <li role="presentation" class="bottomLine"> <a href="index.php?page=ListeClients">Liste des clients</a></li>
         <li role="presentation" class="bottomLine"> <a href="index.php?page=nouveauPays">Ajouter pays</a></li>
