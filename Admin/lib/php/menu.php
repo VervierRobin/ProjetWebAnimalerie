@@ -17,7 +17,7 @@
         <li role="presentation" class="bottomLine"> <a href="index.php?page=suppAn">Supprimer</a></li>
 
         <h3>Produits</h3>
-        <li role="presentation" class="bottomLine"> <a href="index.php?page=nosProduits">Liste</a></li>
+        <li role="presentation" class="bottomLine"> <a href="index.php?page=listProduits">Liste</a></li>
         <li role="presentation" class="bottomLine"> <a href="index.php?page=ajouterPro">Ajouter</a></li> 
         <li role="presentation" class="bottomLine"> <a href="index.php?page=modifPro">Modifier</a></li> 
         <li role="presentation" class="bottomLine"> <a href="index.php?page=supPro">Supprimer</a></li>
@@ -49,7 +49,7 @@
 
         <h3>Produits</h3>
         <?php ($_GET["page"] == "nosProduits" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element   ?>
-        <li role="presentation" class="<?php print $active; ?>"> <a href="index.php?page=nosProduits">Liste</a></li>
+        <li role="presentation" class="<?php print $active; ?>"> <a href="index.php?page=listProduits">Liste</a></li>
         <?php ($_GET["page"] == "ajouterPro" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element   ?>
         <li role="presentation" class="<?php print $active; ?>"> <a href="index.php?page=ajouterPro">Ajouter</a></li> 
         <?php ($_GET["page"] == "modifPro" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element   ?>
