@@ -1,4 +1,4 @@
-<h2 align="center">Découvrez nos produits</h2>
+<h2 align="center">TEST</h2>
 <?php
         try
         {   if (isset($_GET['envoi_choix'])) {
@@ -76,44 +76,32 @@
         echo '</h3>';
 ?>
     <table>
+        <tr>
+            <img src="./images/pdf.png" alt="Pdf"/>&nbsp;
+            <a href="./pages/print_produit_soin.php" target="_blank">Télécharger la liste</a>
+        </tr>
 <?php
         for ( $i = 0; $i < $nbreProduitsSoins; $i++) {
 ?>
-            <tr>
-                <td>
-                   <img src="./images/produitsDeSoins/<?php print $listeProduitsSoins[$i]->photo;?>" alt="<?php print $listeProduitsSoins[$i]->descphoto; ?>" /> 
-                </td>
-                
-                <td> 
-                    <table>
-                        <tr> 
-                            <td colspan=2><h3>Produit soin n°<?php print ((($pageActuelle-1)*$maxElementsPage)+$i+1)?></h3></td> 
-                        </tr>
-                        <tr> 
-                            <td>Nom du produit</td>
-                            <td><?php print $listeProduitsSoins[$i]->produit; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Prix</td>
-                            <td><?php print $listeProduitsSoins[$i]->prixsoin. " €"?></td>
-                        </tr>
-                        <tr>
-                            <td>Description du produit</td>
-                            <td><?php print $listeProduitsSoins[$i]->pour?></td>
-                        </tr>
-                        <tr>
-                            <td>Destiné pour</td>
-                            <td>
-                                <?php 
+                <tr>
+                        <td class="up centrer" width="300px">
+                            <span class="txtBlue txtGras">
+                                <?php
+                                    print $listeProduitsSoins[$i]->produit;
+                                ?>
+                            </span>
+                                <?php
+                                    print $listeProduitsSoins[$i]->prixsoin. " €";
+                                    print $listeProduitsSoins[$i]->pour;
                                     $mg = new ProduitSoinManager($db);
                                     $classification = $mg->getProduitSoinClassification($listeProduitsSoins[$i]->idclassification_typeanimal);
                                     print $classification->espece;
-                                ?>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                                ?>   
+                        </td>
+                        <td>
+                            <img src="./images/produitsDeSoins/<?php print $listeProduitsSoins[$i]->photo;?>" alt="<?php print $listeProduitsSoins[$i]->descphoto; ?>" class="img-redim"/> 
+                        </td>
+                </tr>
 <?php
         }
 ?>
@@ -121,7 +109,6 @@
 <?php   
     } //Fin du IF
 ?>
-
 
 <?php
     if (isset($nbreNourriture)) {

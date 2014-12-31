@@ -58,10 +58,7 @@ for($i=0;$i<count($data);$i++) {
     $pdf->cell(3,.7,$prixtot ,1,'C',1,1);  
     $pdf->cell(1.5,.7,$data[$i]->stockanimal ,1,'C',1,1);     
     
-    $y+=0.7;
-                    
-   
-    
+    $y+=0.7;    
 }
 
 $pdf->output();
