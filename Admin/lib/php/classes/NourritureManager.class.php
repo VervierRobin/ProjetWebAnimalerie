@@ -28,6 +28,22 @@ class NourritureManager extends Nourriture implements CRUD {
         return $_nourritureArray;
  }
  
+ public function getListeNourritureTout(){
+        try 
+        {   $query="select * from nourriture";
+            $resultset= $this->_db->prepare($query);
+            $resultset->execute();            
+        }
+        catch(PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+    
+        while($data = $resultset->fetch()){
+            $_nourritureArray[] = new Nourriture($data);
+        }
+        return $_nourritureArray;
+ }
+ 
  public function countNourriture() {
         $cpt = 0;
         try 

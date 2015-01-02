@@ -2,8 +2,10 @@
 require '../lib/php/fpdf/fpdf.php';
 require '../lib/php/db_pg.php';
 require '../lib/php/classes/connexion.class.php';
+require '../lib/php/classes/CRUD.class.php';
 require '../lib/php/classes/Animal.class.php';
 require '../lib/php/classes/AnimalManager.class.php';
+
 $db = Connexion::getInstance($dsn,$user,$pass);
 
 

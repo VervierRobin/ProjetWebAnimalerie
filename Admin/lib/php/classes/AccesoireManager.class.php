@@ -28,6 +28,21 @@ class AccesoireManager extends Accesoire implements CRUD {
         return $_accesoiresArray;
     }
     
+    public function getListeAccesoireTout(){
+        try 
+        {   $query="select * from accesoires";
+            $resultset= $this->_db->prepare($query);
+            $resultset->execute();           
+        }
+        catch(PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        while($data = $resultset->fetch()){
+            $_accesoiresArray[] = new Accesoire($data);
+        }
+        return $_accesoiresArray;
+    }
+    
     public function countAccesoire(){
         $cpt = 0;
         try 

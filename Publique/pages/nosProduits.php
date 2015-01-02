@@ -1,10 +1,5 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">D&eacute;couvrez nos produits</h3>
-    </div>
-    <div class="panel-body">
-    
-    <?php
+<h2 align="center">Découvrez nos produits</h2>
+<?php
         try
         {   if (isset($_GET['envoi_choix'])) {
                 
@@ -32,10 +27,10 @@
                                 $nbreAccesoire = count($listeAccesoire);
                                 break;
 
-                    case 4 :    $mg4 = new DocumentationManager($db);
+                    /*case 4 :    $mg4 = new DocumentationManager($db);
                                 $listeDocumentation = $mg4->getListeDocumentation();
                                 $nbreDocumentation = count($listeDocumentation);
-                                break;
+                                break;*/
                 }
             }
         }
@@ -57,7 +52,6 @@
                     <option value=1>Produits de soins</option>
                     <option value=2>Nourriture</option>
                     <option value=3>Accesoires</option>
-                    <option value="4">Documentation</option>
                 </select>
             </td>   
         </tr>
@@ -84,41 +78,26 @@
 <?php
         for ( $i = 0; $i < $nbreProduitsSoins; $i++) {
 ?>
-            <tr>
-                <td>
-                   <img src="../Admin/images/produitsDeSoins/<?php print $listeProduitsSoins[$i]->photo;?>" alt="<?php print $listeProduitsSoins[$i]->descphoto; ?>" /> 
-                </td>
-                
-                <td> 
-                    <table>
-                        <tr> 
-                            <td colspan=2><h3>Produit soin n°<?php print ((($pageActuelle-1)*$maxElementsPage)+$i+1)?></h3></td> 
-                        </tr>
-                        <tr> 
-                            <td>Nom du produit</td>
-                            <td><?php print $listeProduitsSoins[$i]->produit; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Prix</td>
-                            <td><?php print $listeProduitsSoins[$i]->prixsoin. " €"?></td>
-                        </tr>
-                        <tr>
-                            <td>Description du produit</td>
-                            <td><?php print $listeProduitsSoins[$i]->pour?></td>
-                        </tr>
-                        <tr>
-                            <td>Destiné pour</td>
-                            <td>
-                                <?php 
+                <tr>
+                        <td class="up centrer" width="300px">
+                            <span class="txtBlue txtGras">
+                                <?php
+                                    print $listeProduitsSoins[$i]->produit. "<br/>";
+                                ?>
+                            </span>
+                                <?php
+                                    print "<strong>Prix : </strong>".$listeProduitsSoins[$i]->prixsoin. " €". "<br/>";
+                                    print "<strong>Description du produit</strong></br>".$listeProduitsSoins[$i]->pour. "<br/>";
                                     $mg = new ProduitSoinManager($db);
                                     $classification = $mg->getProduitSoinClassification($listeProduitsSoins[$i]->idclassification_typeanimal);
-                                    print $classification->espece;
-                                ?>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                                    print "<strong>Destiné pour</strong></br>".$classification->espece. "<br/>";
+                                ?>   
+                        </td>
+                        <td>
+                            <img src="../Admin/images/produitsDeSoins/<?php print $listeProduitsSoins[$i]->photo;?>" alt="<?php print $listeProduitsSoins[$i]->descphoto; ?>" class="img-redim"/> 
+                        </td>
+                        
+                </tr>
 <?php
         }
 ?>
@@ -126,7 +105,6 @@
 <?php   
     } //Fin du IF
 ?>
-
 
 <?php
     if (isset($nbreNourriture)) {
@@ -144,27 +122,28 @@
         }
         echo '</h3>';
 ?>
+
+
     <table>
 <?php
         for ($i = 0; $i < $nbreNourriture; $i++) {
 ?>
-            <tr>
-                <td>
-                   <img src="../Admin/images/nourriture/<?php print $listeNourriture[$i]->photo;?>" alt="<?php print $listeNourriture[$i]->descphoto; ?>" /> 
-                </td>
-                
-                <td> 
-                    <table>
-                        <tr> 
-                            <td colspan=2><h3>Produit alimentaire n°<?php print $i+1?></h3></td> 
-                        </tr>
-                        <tr> 
-                            <td>Nom du produit</td>
-                            <td><?php print $listeNourriture[$i]->description ?></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                <tr>
+                        <td class="up centrer" width="300px">
+                            <span class="txtBlue txtGras">
+                                <?php
+                                    print $listeNourriture[$i]->intitule. "<br/>";
+                                ?>
+                            </span>
+                                <?php
+                                    print $listeNourriture[$i]->description. "<br/>";
+                                ?>   
+                        </td>
+                        <td>
+                            <img src="../Admin/images/nourriture/<?php print $listeNourriture[$i]->photo;?>" alt="<?php print $listeNourriture[$i]->descphoto; ?>" class="img-redim"/>
+                        </td>
+                        
+                </tr>
 <?php
         }
 ?>
@@ -194,19 +173,18 @@
         for ($i = 0; $i < $nbreAccesoire; $i++) {
 ?>
             <tr>
-                <td>
-                   <img src="../Admin/images/accesoires/<?php print $listeAccesoire[$i]->photo;?>" alt="<?php print $listeAccesoire[$i]->descphoto; ?>" /> 
+                <td> 
+                    <img src="../Admin/images/accesoires/<?php print $listeAccesoire[$i]->photo;?>" alt="<?php print $listeAccesoire[$i]->descphoto; ?>" class="img-redim"/>
                 </td>
-                
                 <td> 
                     <table>
-                        <tr> 
-                            <td colspan=2><h3>Produit alimentaire n°<?php print $i+1?></h3></td> 
-                        </tr>
-                        <tr> 
-                            <td>Nom du produit</td>
-                            <td><?php print $listeAccesoire[$i]->description ?></td>
-                        </tr>
+                        <td class="up centrer" width="300px">
+                            <span class="txtBlue txtGras">
+                                <?php 
+                                    print $listeAccesoire[$i]->descriptionaccesoire
+                                ?>
+                            </span> 
+                        </td>
                     </table>
                 </td>
             </tr>
@@ -217,4 +195,3 @@
 <?php   
     }
 ?>
- </div>

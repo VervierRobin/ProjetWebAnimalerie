@@ -1,4 +1,4 @@
-<h2 align="center">TEST</h2>
+<h2 align="center">Découvrez nos produits</h2>
 <?php
         try
         {   if (isset($_GET['envoi_choix'])) {
@@ -27,10 +27,10 @@
                                 $nbreAccesoire = count($listeAccesoire);
                                 break;
 
-                    case 4 :    $mg4 = new DocumentationManager($db);
+                    /*case 4 :    $mg4 = new DocumentationManager($db);
                                 $listeDocumentation = $mg4->getListeDocumentation();
                                 $nbreDocumentation = count($listeDocumentation);
-                                break;
+                                break;*/
                 }
             }
         }
@@ -52,7 +52,6 @@
                     <option value=1>Produits de soins</option>
                     <option value=2>Nourriture</option>
                     <option value=3>Accesoires</option>
-                    <option value="4">Documentation</option>
                 </select>
             </td>   
         </tr>
@@ -77,25 +76,26 @@
 ?>
     <table>
         <tr>
-            <img src="./images/pdf.png" alt="Pdf"/>&nbsp;
-            <a href="./pages/print_produit_soin.php" target="_blank">Télécharger la liste</a>
+             <img src="./images/pdf.png" alt="Pdf"/>&nbsp;
+             <a href="./pages/print_produit_soin.php" target="_blank">Télécharger la liste</a>
         </tr>
 <?php
         for ( $i = 0; $i < $nbreProduitsSoins; $i++) {
 ?>
+                
                 <tr>
                         <td class="up centrer" width="300px">
                             <span class="txtBlue txtGras">
                                 <?php
-                                    print $listeProduitsSoins[$i]->produit;
+                                    print $listeProduitsSoins[$i]->produit. "<br/><br/>";
                                 ?>
                             </span>
                                 <?php
-                                    print $listeProduitsSoins[$i]->prixsoin. " €";
-                                    print $listeProduitsSoins[$i]->pour;
+                                    print "<strong>Prix : </strong>".$listeProduitsSoins[$i]->prixsoin. " €". "<br/>";
+                                    print "<strong>Description du produit</strong></br>".$listeProduitsSoins[$i]->pour. "<br/>";
                                     $mg = new ProduitSoinManager($db);
                                     $classification = $mg->getProduitSoinClassification($listeProduitsSoins[$i]->idclassification_typeanimal);
-                                    print $classification->espece;
+                                    print "<strong>Destiné pour</strong></br>".$classification->espece. "<br/><br/><br/><br/>";
                                 ?>   
                         </td>
                         <td>
@@ -126,27 +126,34 @@
         }
         echo '</h3>';
 ?>
+
+
     <table>
+        <tr>
+            <img src="./images/pdf.png" alt="Pdf"/>&nbsp;
+            <a href="./pages/print_nourriture.php" target="_blank">Télécharger la liste</a>
+        </tr>
 <?php
         for ($i = 0; $i < $nbreNourriture; $i++) {
 ?>
-            <tr>
-                <td>
-                   <img src="./images/nourriture/<?php print $listeNourriture[$i]->photo;?>" alt="<?php print $listeNourriture[$i]->descphoto; ?>" /> 
-                </td>
                 
-                <td> 
-                    <table>
-                        <tr> 
-                            <td colspan=2><h3>Produit alimentaire n°<?php print $i+1?></h3></td> 
-                        </tr>
-                        <tr> 
-                            <td>Nom du produit</td>
-                            <td><?php print $listeNourriture[$i]->description ?></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                
+                <tr>
+                        <td class="up centrer" width="300px">
+                            <span class="txtBlue txtGras">
+                                <?php
+                                    print $listeNourriture[$i]->intitule. "<br/>";
+                                ?>
+                            </span>
+                                <?php
+                                    print $listeNourriture[$i]->description. "<br/>";
+                                ?>   
+                        </td>
+                        <td>
+                            <img src="../Admin/images/nourriture/<?php print $listeNourriture[$i]->photo;?>" alt="<?php print $listeNourriture[$i]->descphoto; ?>" class="img-redim"/>
+                        </td>
+                        
+                </tr>
 <?php
         }
 ?>
@@ -172,23 +179,26 @@
         echo '</h3>';
 ?>
     <table>
+        <tr>
+            <img src="./images/pdf.png" alt="Pdf"/>&nbsp;
+            <a href="./pages/print_accesoire.php" target="_blank">Télécharger la liste</a>
+        </tr>
 <?php
         for ($i = 0; $i < $nbreAccesoire; $i++) {
 ?>
             <tr>
-                <td>
-                   <img src="./images/accesoires/<?php print $listeAccesoire[$i]->photo;?>" alt="<?php print $listeAccesoire[$i]->descphoto; ?>" /> 
+                <td> 
+                    <img src="../Admin/images/accesoires/<?php print $listeAccesoire[$i]->photo;?>" alt="<?php print $listeAccesoire[$i]->descphoto; ?>" class="img-redim"/>
                 </td>
-                
                 <td> 
                     <table>
-                        <tr> 
-                            <td colspan=2><h3>Produit alimentaire n°<?php print $i+1?></h3></td> 
-                        </tr>
-                        <tr> 
-                            <td>Nom du produit</td>
-                            <td><?php print $listeAccesoire[$i]->description ?></td>
-                        </tr>
+                        <td class="up centrer" width="300px">
+                            <span class="txtBlue txtGras">
+                                <?php 
+                                    print $listeAccesoire[$i]->descriptionaccesoire
+                                ?>
+                            </span> 
+                        </td>
                     </table>
                 </td>
             </tr>
