@@ -20,7 +20,7 @@ $nbr = count($liste_Class); //Compte le nombre d'élements
                             for ($i = 0; $i < $nbr; $i++) {
                                 ?>
                                 <option value="<?php print $liste_Class[$i]->idclassification; ?>">
-                                    <?php print $liste_Class[$i]->espece;
+                                    <?php print utf8_encode($liste_Class[$i]->espece);
                                     ?>
                                 </option>
                                 <?php
@@ -67,7 +67,7 @@ $nbr = count($liste_Class); //Compte le nombre d'élements
 
                                 <?php
                                 if ($animaux[$i]->race != '') {
-                                    print $animaux[$i]->espece . " : " . $animaux[$i]->race . "<br />";
+                                    print utf8_encode($animaux[$i]->espece) . " : " . utf8_encode($animaux[$i]->race) . "<br />";
                                 }
                                 ?></span>
 
@@ -97,7 +97,7 @@ $nbr = count($liste_Class); //Compte le nombre d'élements
 
                         </td>
                         <td>
-                            <img src="../Admin/images/animaux/<?php print $animaux[$i]->photo; ?>" alt="<?php print $animaux[$i]->descphoto; ?>" class="img-redim" />
+                            <img src="../Admin/images/animaux/<?php print $animaux[$i]->photo; ?>" alt="<?php print utf8_encode($animaux[$i]->descphoto); ?>" class="img-redim" />
                         </td>
 
                     </tr>

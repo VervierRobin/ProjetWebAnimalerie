@@ -91,15 +91,15 @@
                         <td class="up centrer" width="300px">
                             <span class="txtBlue txtGras">
                                 <?php
-                                    print $listeProduitsSoins[$i]->produit. "<br/><br/>";
+                                    print utf8_encode($listeProduitsSoins[$i]->produit). "<br/><br/>";
                                 ?>
                             </span>
                                 <?php
                                     print "<strong>Prix : </strong>".$listeProduitsSoins[$i]->prixsoin. " €". "<br/>";
-                                    print "<strong>Description du produit</strong></br>".$listeProduitsSoins[$i]->pour. "<br/>";
+                                    print "<strong>Description du produit</strong></br>".utf8_encode($listeProduitsSoins[$i]->pour). "<br/>";
                                     $mg = new ProduitSoinManager($db);
                                     $classification = $mg->getProduitSoinClassification($listeProduitsSoins[$i]->idclassification_typeanimal);
-                                    print "<strong>Destiné pour</strong></br>".$classification->espece. "<br/><br/><br/><br/>";
+                                    print "<strong>Destiné pour</strong></br>".utf8_encode($classification->espece). "<br/><br/><br/><br/>";
                                 ?>   
                         </td>
                         <td>
@@ -146,15 +146,15 @@
                         <td class="up centrer" width="300px">
                             <span class="txtBlue txtGras">
                                 <?php
-                                    print $listeNourriture[$i]->intitule. "<br/>";
+                                    print utf8_encode($listeNourriture[$i]->intitule). "<br/>";
                                 ?>
                             </span>
                                 <?php
-                                    print $listeNourriture[$i]->description. "<br/>";
+                                    print utf8_encode($listeNourriture[$i]->description). "<br/>";
                                 ?>   
                         </td>
                         <td>
-                            <img src="../Admin/images/nourriture/<?php print $listeNourriture[$i]->photo;?>" alt="<?php print $listeNourriture[$i]->descphoto; ?>" class="img-redim"/>
+                            <img src="../Admin/images/nourriture/<?php print $listeNourriture[$i]->photo;?>" alt="<?php print utf8_encode($listeNourriture[$i]->descphoto); ?>" class="img-redim"/>
                         </td>
                         
                 </tr>

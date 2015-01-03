@@ -9,13 +9,12 @@
     </div>
     <div class="panel-body">
 <table border="2">
-    <th width="50" align="center">ID</th>
-    <th width="100" align="center">Client</th>
-   
-    <th width="100" align="center">Téléphone</th>
-    <th width="200" align="center">Adresse</th>
+    <th width="50" ><div class="centrer"> ID </div></th>
+    <th width="100"><div class="centrer">Client </div></th>
+    <th width="100"><div class="centrer">Téléphone </div></th>
+    <th width="200"><div class="centrer">Adresse </div></th>
     
-    <th  width="250">Adresse mail</th>
+    <th  width="250"><div class="centrer">Adresse mail </div></th>
 <?php 
         for ( $i = 0; $i < $nbreClients; $i++ ) { 
 ?>
