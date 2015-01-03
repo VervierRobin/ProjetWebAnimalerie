@@ -9,11 +9,11 @@
     </div>
     <div class="panel-body">
 <table border="2">
-    <th width="50">ID</th>
-    <th width="100">Client</th>
+    <th width="50" align="center">ID</th>
+    <th width="100" align="center">Client</th>
    
-    <th width="100">Téléphone</th>
-    <th width="200">Adresse</th>
+    <th width="100" align="center">Téléphone</th>
+    <th width="200" align="center">Adresse</th>
     
     <th  width="250">Adresse mail</th>
 <?php 
@@ -21,18 +21,20 @@
 ?>
         <tr>
             <td align="center"><?php print $listeClients[$i]->idclient ?></td>
-            <td align="center"><?php print $listeClients[$i]->nom ?> <br />
-                <?php print $listeClients[$i]->prenom ?><br />
-           <?php print $listeClients[$i]->pseudo ?></td>
+            <td align="center">
+                <?php print $listeClients[$i]->nom ?>    <br />
+                <?php print $listeClients[$i]->prenom ?> <br />
+                <?php print $listeClients[$i]->pseudo ?>
+            </td>
             <td align="center"><?php print $listeClients[$i]->num ?></td>
-             <?php $pays=$mgClient->getPays($listeClients[$i]->idpays_pays)?>
-            <td align="center"><?php print $listeClients[$i]->rue ?><br />
+            <?php $pays=$mgClient->getPays($listeClients[$i]->idpays_pays)?>
+            <td align="center">
+                <?php print $listeClients[$i]->rue ?><br />
                 <?php print $listeClients[$i]->cp ?> 
                 <?php print $listeClients[$i]->ville ?> <br />
-                (<?php print $pays->nompays ?>)</td>
+                (<?php print $pays->nompays ?>)
+            </td>
             
-            
-        
             <td align="center"><?php print $listeClients[$i]->mail ?></td>
         </tr>
 <?php 
