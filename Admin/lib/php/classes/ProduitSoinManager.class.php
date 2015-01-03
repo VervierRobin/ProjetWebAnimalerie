@@ -45,7 +45,7 @@ class ProduitSoinManager extends ProduitSoin implements CRUD{
     
     public function getListeProduitSoinTotal(){
         try {
-            $query="select * from produitsoin;";
+            $query="select * from produitsoin order by produit;";
             $resultset= $this->_db->prepare($query);
             $resultset->execute();            
         }
@@ -72,4 +72,21 @@ class ProduitSoinManager extends ProduitSoin implements CRUD{
         $classification = new Classification($data);
         return $classification;
     }
+    
+    public function getProduitSoinMarque($idMarque) {
+        try
+        {   $query="select nommarque from marque where idmarque = :marq";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(":marq",$idMarque);
+            $resultset->execute();
+        }
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        $dataMarque = $resultset->fetch();
+        $Marque = new Marque($dataMarque);
+        return $Marque;
+    }
+    
+    
 }

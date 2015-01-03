@@ -30,7 +30,7 @@ class AccesoireManager extends Accesoire implements CRUD {
     
     public function getListeAccesoireTout(){
         try 
-        {   $query="select * from accesoires";
+        {   $query="select * from accesoires order by descriptionaccesoire";
             $resultset= $this->_db->prepare($query);
             $resultset->execute();           
         }
@@ -57,5 +57,35 @@ class AccesoireManager extends Accesoire implements CRUD {
             $cpt++;
         }
         return $cpt;
+    }
+    
+     public function getAccClassification($idClassification) {
+        try
+        {   $query="select * from classification where idclassification = :classif";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(":classif",$idClassification);
+            $resultset->execute();
+        }
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        $data = $resultset->fetch();
+        $classification = new Classification($data);
+        return $classification;
+    }
+    
+    public function getAccMarque($idMarque) {
+        try
+        {   $query="select nommarque from marque where idmarque = :marq";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(":marq",$idMarque);
+            $resultset->execute();
+        }
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        $dataMarque = $resultset->fetch();
+        $Marque = new Marque($dataMarque);
+        return $Marque;
     }
 }

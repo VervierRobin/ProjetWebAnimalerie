@@ -16,11 +16,11 @@ $pdf=new FPDF('l','cm','A4');
 $pdf->SetFont('Arial','B',20);
 $pdf->AddPage();
 $pdf->SetXY(1.5,0.8);
-$pdf->cell(26.8,.7,'Animalerie "Au petit bonheur',0,0,'C',0);
+$pdf->cell(26.8,.7,'Animalerie "Au p\'tit bonheur',0,0,'C',0);
 
 
 //header premier
-$pdf->SetFillColor(123,220,72);
+$pdf->SetFillColor(238, 205, 134);
 $pdf->SetDrawColor(0,0,0);
 $pdf->SetTextColor(255,255,255); 
 $pdf->SetXY(1.5,1.8); // coordonnées bord supérieur gauche

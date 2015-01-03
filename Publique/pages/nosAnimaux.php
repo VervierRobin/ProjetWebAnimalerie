@@ -107,3 +107,4 @@ $nbr = count($liste_Class); //Compte le nombre d'élements
             ?>      
             </table>
     </div>
+</div>

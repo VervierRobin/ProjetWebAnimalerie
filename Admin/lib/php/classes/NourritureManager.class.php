@@ -30,7 +30,7 @@ class NourritureManager extends Nourriture implements CRUD {
  
  public function getListeNourritureTout(){
         try 
-        {   $query="select * from nourriture";
+        {   $query="select * from nourriture order by intitule";
             $resultset= $this->_db->prepare($query);
             $resultset->execute();            
         }
@@ -60,6 +60,34 @@ class NourritureManager extends Nourriture implements CRUD {
         return $cpt;
     }
 
-   
+    public function getNourritureClassification($idClassification) {
+        try
+        {   $query="select * from classification where idclassification = :classif";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(":classif",$idClassification);
+            $resultset->execute();
+        }
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        $data = $resultset->fetch();
+        $classification = new Classification($data);
+        return $classification;
+    }
+    
+    public function getNourritureMarque($idMarque) {
+        try
+        {   $query="select nommarque from marque where idmarque = :marq";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(":marq",$idMarque);
+            $resultset->execute();
+        }
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        $dataMarque = $resultset->fetch();
+        $Marque = new Marque($dataMarque);
+        return $Marque;
+    }
 
 }

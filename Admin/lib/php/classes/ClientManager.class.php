@@ -150,5 +150,20 @@ class ClientManager extends Client implements CRUD {
 
         return $retour;
     }
+    
+    public function getPays($idPays) {
+        try
+        {   $query="select nompays from pays where idpays = :pays";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(":pays",$idPays);
+            $resultset->execute();
+        }
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te ".$e->getMessage();
+        }
+        $dataPays = $resultset->fetch();
+        $Pays = new Pays($dataPays);
+        return $Pays;
+    }
 
 }

@@ -3,37 +3,41 @@
     $listeClients = $mgClient->getClientAll();
     $nbreClients = count($listeClients);
 ?>
-
-<h2>Liste des clients</h2>
-
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Liste des clients</h3>
+    </div>
+    <div class="panel-body">
 <table border="2">
-    <th>ID Client</th>
-    <th>Pays</th>
-    <th>Nom</th>
-    <th>Prenom</th>
-    <th>Numero</th>
+    <th width="50">ID</th>
+    <th width="100">Client</th>
+   
+    <th width="100">Téléphone</th>
+    <th width="200">Adresse</th>
     
-    <th>Rue</th>
-    <th>Code Postal</th>
-    <th>Ville</th>
-    <th>Pseudo</th>
-    <th>Adresse mail</th>
+    <th  width="250">Adresse mail</th>
 <?php 
         for ( $i = 0; $i < $nbreClients; $i++ ) { 
 ?>
         <tr>
             <td><?php print $listeClients[$i]->idclient ?></td>
-            <td><?php print $listeClients[$i]->idpays_pays ?></td>
-            <td><?php print $listeClients[$i]->nom ?></td>
-            <td><?php print $listeClients[$i]->prenom ?></td>
+            <td><?php print $listeClients[$i]->nom ?> <br />
+                <?php print $listeClients[$i]->prenom ?><br />
+           <?php print $listeClients[$i]->pseudo ?></td>
             <td><?php print $listeClients[$i]->num ?></td>
-            <td><?php print $listeClients[$i]->rue ?></td>
-            <td><?php print $listeClients[$i]->cp ?></td>
-            <td><?php print $listeClients[$i]->ville ?></td>
-            <td><?php print $listeClients[$i]->pseudo ?></td>
+             <?php $pays=$mgClient->getPays($listeClients[$i]->idpays_pays)?>
+            <td><?php print $listeClients[$i]->rue ?><br />
+                <?php print $listeClients[$i]->cp ?> 
+                <?php print $listeClients[$i]->ville ?> <br />
+                (<?php print $pays->nompays ?>)</td>
+            
+            
+        
             <td><?php print $listeClients[$i]->mail ?></td>
         </tr>
 <?php 
         }    
 ?>
 </table>
+  </div>
+      </div>

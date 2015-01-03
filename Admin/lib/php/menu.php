@@ -27,7 +27,7 @@
         <h3>Administration</h3> 
             <?php  ($_GET["page"] == "nvAdmin" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element 
         ?>
-        <li role="presentation" class="<?php print $active; ?>" > <a href="index.php?page=nvAdmin">Nouveau admin</a></li> 
+        <li role="presentation" class="<?php print $active; ?>" > <a href="index.php?page=nvAdmin">Nouveau webmaster</a></li> 
         <?php ($_GET["page"] == "listeCommandes" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element   ?>
         <li role="presentation" class="<?php print $active; ?>"> <a href="index.php?page=listeCommandes">Liste des commandes</a></li>
         <?php ($_GET["page"] == "ListeClients" ? $active = "bottomLine active" : $active = "bottomLine");  //ajouter le active dans la class de l'element   ?>
