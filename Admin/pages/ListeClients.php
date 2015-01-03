@@ -20,20 +20,20 @@
         for ( $i = 0; $i < $nbreClients; $i++ ) { 
 ?>
         <tr>
-            <td><?php print $listeClients[$i]->idclient ?></td>
-            <td><?php print $listeClients[$i]->nom ?> <br />
+            <td align="center"><?php print $listeClients[$i]->idclient ?></td>
+            <td align="center"><?php print $listeClients[$i]->nom ?> <br />
                 <?php print $listeClients[$i]->prenom ?><br />
            <?php print $listeClients[$i]->pseudo ?></td>
-            <td><?php print $listeClients[$i]->num ?></td>
+            <td align="center"><?php print $listeClients[$i]->num ?></td>
              <?php $pays=$mgClient->getPays($listeClients[$i]->idpays_pays)?>
-            <td><?php print $listeClients[$i]->rue ?><br />
+            <td align="center"><?php print $listeClients[$i]->rue ?><br />
                 <?php print $listeClients[$i]->cp ?> 
                 <?php print $listeClients[$i]->ville ?> <br />
                 (<?php print $pays->nompays ?>)</td>
             
             
         
-            <td><?php print $listeClients[$i]->mail ?></td>
+            <td align="center"><?php print $listeClients[$i]->mail ?></td>
         </tr>
 <?php 
         }    
