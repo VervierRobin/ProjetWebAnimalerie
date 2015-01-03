@@ -26,6 +26,23 @@ class ClientManager extends Client implements CRUD {
         return $_clientArray;
     }
 
+    
+    public function getClientAll() {
+        try 
+        {   $query = "select * from client order by nom, prenom";
+            $resultset = $this->_db->prepare($query);
+            $resultset->execute();
+        } 
+        catch (PDOException $e) {
+            print "Echec de la requ&ecirc;te " . $e->getMessage();
+        }
+        while ($data = $resultset->fetch()) {
+            $_clientArray[] = new Client($data);
+        }
+        return $_clientArray;
+    }
+    
+    
     function isClient($login, $password) {
         $retour = array();
         try {
